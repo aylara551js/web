@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aylara551js - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="lara.jpg">
+    <li </head>
+
+<body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center text-2xl font-bold text-indigo-600">
+                    <a href="#" title="Main Logo" class="flex items-center">
+                        <!-- <img src="aylara551.png" alt="Logo" class="h-8 w-8 inline-block mr-2"> -->
+                        <div class="aspect-square"> <!-- Mantiene la proporción 1:1 para el círculo -->
+                            <img src="lara.jpg" alt="Perfil" class="h-10 w-10 rounded-full object-cover shadow-md">
+                        </div>
+                        <p class="ml-2">aylara551js</p>
+                    </a>
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex gap-12">
+                    <!-- <a href="#home" class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Home</a> -->
+                    <a href="#aboutme"
+                        class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">About</a>
+                    <a href="#education"
+                        class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Education</a>
+                    <a href="#experience"
+                        class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Experience</a>
+                    <!-- <a href="#technologies" class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Technologies</a> -->
+                    <a href="#publications"
+                        class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Publications</a>
+                    <a href="#contact"
+                        class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" onclick="toggleMenu()" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg border-t">
+                <nav class="px-4 py-4">
+                    <ul class="space-y-3">
+                        <li><a href="#aboutme"
+                                class="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md transition"
+                                onclick="toggleMenu()">About</a></li>
+                        <li><a href="#education"
+                                class="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md transition"
+                                onclick="toggleMenu()">Education</a></li>
+                        <li><a href="#experience"
+                                class="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md transition"
+                                onclick="toggleMenu()">Experience</a></li>
+                        <li><a href="#publications"
+                                class="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md transition"
+                                onclick="toggleMenu()">Publications</a></li>
+                        <li><a href="#contact"
+                                class="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md transition"
+                                onclick="toggleMenu()">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="home" class="h-screen flex items-center justify-center bg-gray-100">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Lara Ortiz-Martín</h1>
+                <h2 class="text-2xl md:text-3xl text-indigo-600 font-semibold mb-4">Frontend Architect & Researcher</h2>
+                <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+                    PhD in Computer Science specializing in System Security and Front-End Architect building web
+                    applications with 14+ years of experience.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#aboutme"
+                        class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">
+                        Learn More
+                    </a>
+                    <a href="#contact"
+                        class="px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg font-semibold hover:bg-indigo-600 hover:text-white transition">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About me Section -->
+        <section id="aboutme" class="py-20 md:py-32 bg-white">
+            <div class="flex flex-col md:flex-row items-center gap-6 p-6 bg-white rounded-xl shadow-lg">
+                <!-- Contenedor de la foto: 25% del ancho (w-1/4) -->
+                <div class="w-full md:w-1/4">
+                    <div class="aspect-square  max-w-48 mx-auto">
+                        <img src="lara.jpg" alt="Perfil" class="w-full h-full rounded-full object-cover shadow-md">
+                    </div>
+                </div>
+
+                <!-- Contenedor del texto: 75% del ancho (w-3/4) -->
+                <div class="w-full md:w-2/4">
+                    <p> 👋 Hello There! </p>
+                    <h2 class="text-2xl font-bold text-gray-800">I'm Lara Ortiz-Martin</h2>
+                    <!-- <h3>Frontend Architect | Researcher</h3> -->
+                    <p class="mt-2 text-gray-600 leading-relaxed">
+                        I am a PhD graduate in Computer Science specializing in system security. And a Front-end Lead
+                        Architect with 14+ years of experience building and
+                        maintaining complex web apps in the learning and insurance industry.
+                        <br>
+                        <br>
+                        My research background was focus on the analysis and exploitation of biosignals, particularly
+                        electrocardiogram (ECG), and explored the potential of using this kind of signals as a source of
+                        randomness for security applications.
+                        <br>
+                        <br>
+                        As a Frontend Architect I was responsible for designing a high-level architecture, establishing
+                        technical guidelines, and ensuring that the system is scalable, accessible, maintainable, and
+                        secure.
+                        <br>
+                        <br>
+                        At the same time I was working in the industry, I have continued my research on topics such as
+                        security in browser extensions and the application of large language models in research.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/4">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Interests</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Web Technologies</li>
+                        <li>System Security</li>
+                        <li>Browser Extensions</li>
+                        <li>Natural Language Processing</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Quantum Computing</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+        <!-- Education Section -->
+        <section id="education" class="py-20 md:py-32 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Education</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+                        <div class="text-4xl mb-4 flex justify-center "><img src="uc3m.png"
+                                alt="Universidad Carlos III de Madrid" /></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">PhD in Computer Science (2019)</h3>
+                        <p class="text-gray-600">Title thesis: "Security and privacy based on biosignal for implantable
+                            and wearable devices"</p>
+                        <a class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition"
+                            href="https://e-archivo.uc3m.es/entities/publication/10850d95-b2f5-4e3a-91fc-3341dd25c063"
+                            target="_blank"="text-blue-500 hover:underline">View Thesis</a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+                        <div class="text-4xl mb-4 flex justify-center "><img src="uc3m.png"
+                                alt="Universiad Carlos III de Madrid" /></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">MSc in Computer Science and distributed,
+                            multimedia and secure systems (2011)</h3>
+                        <p class="text-gray-600">
+                            Title master thesis: "Use of mobile agents in vehicular networks. State of the question and
+                            application for the generation of pseudonyms in a distributed way"
+                        </p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+                        <div class="text-4xl mb-4 flex justify-center "><img src="upm.png"
+                                alt="Universidad Politécnica de Madrid" /></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">BSc in Computer Science (2010)</h3>
+                        <p class="text-gray-600">
+                            Title final project: "Web app for control of working time in a research projects"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 md:py-32 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Experience</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+                        <div class="text-4xl mb-4 flex justify-center "><img src="sisnet.png" alt="SISnet 360" /></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Front-End Architect (2013 - Present)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>SISnet 360 - Netijam - AVOS Tech</strong> </p>
+                        <p class="text-gray-600">
+                            Highly experienced Front-End Lead Architect specializing in the software insurance industry.
+                        </p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+                        <div class="text-4xl mb-4 flex justify-center "><img src="chalmers.png" alt="Chalmers" /></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Researcher Visitor (2017)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Chalmers tekniska högskola</strong> </p>
+                        <p class="text-gray-600"> Research on the feasibility of generating cryptographic tokens from
+                            ECG signals, utilizing a formal model and run-time monitor with a fuzzy extractor.
+                        </p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+                        <div class="text-4xl mb-4 flex justify-center "><img src="uc3m.png"
+                                alt="Universidad Carlos III de Madrid" /></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Researcher (2013-2019)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Universidad Carlos III de Madrid</strong> </p>
+                        <p class="text-gray-600">Research on the potential of electrocardiogram (ECG) signals as a
+                            source of random bits for cryptographic applications</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+                        <div class="text-4xl mb-4 flex justify-left">
+                            <img src="uned.jpg" alt="Fundación UNED" />
+                        </div>
+                        <div class="text-4xl mb-4 flex justify-center ">
+                            <img src="guapu.jpg" alt="Guapu Technologies" />
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Researcher and web developer (2012-2013)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Fundación UNED and Guapu Technologies</strong></p>
+                        <p class="text-gray-600">Research and web develop in a online teaching platform called
+                            Mission:Learn oriented to video courses.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+                        <div class="text-4xl mb-4 flex justify-center ">
+                            <img src="uc3m.png" alt="Universidad Carlos III de Madrid" />
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Researcher (2010-2011)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Universidad Carlos III de Madrid</strong> </p>
+                        <p class="text-gray-600">Research in security and privacy system focus on searching
+                            vulnerabilities in Radio Frequency Identification (RFID) mutual authentication protocols and
+                            also how to use Mobile Agents in VANET (Vehicular Ad-Hoc Networks).</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+                        <div class="text-4xl mb-4 flex justify-center ">
+                            <img src="upm.png" alt="Universidad Politécnica de Madrid" />
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Researcher and web developer (2009-2010)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Universidad Politécnica de Madrid</strong> </p>
+                        <p class="text-gray-600">Research and develop e-learning and e-competencies tools.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+                        <div class="text-4xl mb-4 flex justify-center ">
+                            <img src="upm.png" alt="Universidad Politécnica de Madrid" />
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Web developer (2008-2009)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Universidad Politécnica de Madrid</strong> </p>
+                        <p class="text-gray-600">Analysis and development of corporate web applications of the research
+                            area of the Technical University of Madrid (UPM).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Publications Section -->
+        <section id="publications" class="py-20 md:py-32 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Publications</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Publication 1 -->
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Analysing the Impact of ChatGPT in Research
+                            (2024)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
+                            Ortiz-Martin</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Applied Intelligence.</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-700">
+                                <span id="abstract1-short"><strong>Abstract:</strong> Large Language Models (LLMs) are a
+                                    type of machine learning that handles a wide range of Natural Language Processing
+                                    (NLP) scenarios. Recently, in December 2022, a company called OpenAI ...</span>
+                                <span id="abstract1-full" class="hidden"><strong>Abstract:</strong> Large Language
+                                    Models (LLMs) are a type of machine learning that handles a wide range of Natural
+                                    Language Processing (NLP) scenarios. Recently, in December 2022, a company called
+                                    OpenAI released ChatGPT, a tool that, within a few months, became the most
+                                    representative example of LLMs, automatically generating unique and coherent text on
+                                    many topics, summarising and rewriting it, or even translating it to other
+                                    languages. ChatGPT originated some controversy in academia since students can
+                                    generate unique text for writing assessments being sometimes extremely difficult to
+                                    distinguish whether it comes from ChatGPT or a person. In research, some journals
+                                    specifically banned ChatGPT in scientific papers. However, when used correctly, it
+                                    becomes a powerful tool to rewrite, for instance, scientific papers and, thus,
+                                    deliver researchers’ messages in a better way. In this paper, we conduct an
+                                    empirical study of the impact of ChatGPT in research. We downloaded the abstract of
+                                    over 45,000 papers from over 300 journals from Dec 2022 and Feb 2023 belonging to
+                                    different research editorials. We use four of the most known ChatGPT detection tools
+                                    and conclude that ChatGPT played a role in around 10% of the papers published in
+                                    every editorial, showing that authors from different fields have rapidly adopted
+                                    such a tool in their research.</span>
+                            </p>
+                            <button onclick="toggleAbstract('abstract1')"
+                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <span id="abstract1-btn">Show more</span>
+                            </button>
+                        </div>
+                        <a href="https://link.springer.com/content/pdf/10.1007/s10489-024-05298-0.pdf" target="_blank"
+                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                            View PDF
+                        </a>
+                    </div>
+                    <!-- Publication 2 -->
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Are Chrome Extensions Compliant with the Spirit
+                            of Least Privilege? (2022)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
+                            Ortiz-Martin, Gerardo Schneider and Andrei Sabelfeld</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> International Journal of
+                            Information Security</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-700">
+                                <span id="abstract2-short"><strong>Abstract:</strong> Extensions are small applications
+                                    installed by users and enrich the user experience of browsing the Internet. Browsers
+                                    expose a set of restricted APIs to extensions. To be used, extensions need to list
+                                    the permissions associated with these APIs ...</span>
+                                <span id="abstract2-full" class="hidden"><strong>Abstract:</strong> Extensions are small
+                                    applications installed by users and enrich the user experience of browsing the
+                                    Internet. Browsers expose a set of restricted APIs to extensions. To be used,
+                                    extensions need to list the permissions associated with these APIs in a mandatory
+                                    extension file named manifest. In particular, Chrome’s permission ecosystem was
+                                    designed in the spirit of the least privilege. Yet, this paper demonstrates that
+                                    39.8% of the analyzed extensions provided by the official Web Store are compliant
+                                    with the spirit of least privilege. Also, we develop: (1) a browser extension to
+                                    make aware regular users of the permissions the extensions they install; (2) a web
+                                    app where extensions developers can check whether their extensions are compliant
+                                    with the spirit of the least privileged; and (3) a set of scripts that can be part
+                                    of the vendors’ acceptance criteria such that when developers upload their
+                                    extensions to the official repositories, the scripts automatically analyze the
+                                    extensions and generate a report about the permissions and the usage.</span>
+                            </p>
+                            <button onclick="toggleAbstract('abstract2')"
+                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <span id="abstract2-btn">Show more</span>
+                            </button>
+                        </div>
+                        <a href="https://link.springer.com/content/pdf/10.1007/s10207-022-00610-w.pdf" target="_blank"
+                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                            View PDF
+                        </a>
+                    </div>
+                    <!-- Publication 3 -->
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Heart-Based Biometric Protocols: A look back
+                            over almost two decades (2022)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo
+                            Picazo-Sanchez</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Arxiv</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-700">
+                                <span id="abstract3-short"><strong>Abstract:</strong> This article surveys the
+                                    literature over the period 2003-2021 on heart-based biometric protocols. In
+                                    particular, we focus on how the heart signal is transformed from a continuous wave
+                                    to discrete values to be used afterwards in authentication ...</span>
+                                <span id="abstract3-full" class="hidden"><strong>Abstract:</strong> This article surveys
+                                    the literature over the period 2003-2021 on heart-based biometric protocols. In
+                                    particular, we focus on how the heart signal is transformed from a continuous wave
+                                    to discrete values to be used afterwards in authentication protocols. We explain and
+                                    classify the surveyed proposals according to three main parameters: i) the dataset
+                                    they use for testing their results; ii) the delineation algorithms they use to
+                                    extract the fiducial points, and; iii) the cryptographic tests they run (if any) to
+                                    validate how random the extracted token is.</span>
+                            </p>
+                            <button onclick="toggleAbstract('abstract3')"
+                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <span id="abstract3-btn">Show more</span>
+                            </button>
+                        </div>
+                        <a href="https://arxiv.org/pdf/2202.02807" target="_blank"
+                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                            View PDF
+                        </a>
+                    </div>
+                    <!-- Publication 4 -->
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Are the Interpulse Intervals of an ECG Signal a
+                            Good Source of Entropy? An In-depth Entropy Analysis Based on NIST 800-90B Recommendation
+                            (2020)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo
+                            Picazo-Sanchez, Pedro Peris-Lopez</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Journal of Future Generation
+                            Computer Systems</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-700">
+                                <span id="abstract4-short"><strong>Abstract:</strong> In recent years many authors have
+                                    explored the use of biological signals for security issues. In the context of
+                                    cardiac signals, the use of Inter-Pulse Interval (IPI) values as a source of entropy
+                                    is one of the most widely used solutions ...</span>
+                                <span id="abstract4-full" class="hidden"><strong>Abstract:</strong> In recent years many
+                                    authors have explored the use of biological signals for security issues. In the
+                                    context of cardiac signals, the use of Inter-Pulse Interval (IPI) values as a source
+                                    of entropy is one of the most widely used solutions in the literature. To date,
+                                    there is a broad consensus that the four least significant bits of each IPI are
+                                    highly entropic and can be used, for instance, in the generation of a cryptographic
+                                    key. In this article, we demonstrate that the choice of the IPI bits used to date
+                                    may not be the most correct (e.g., the combination of bits 2638 are much better that
+                                    the common assumed 5678). To come to our conclusions, we have done a rigorous and
+                                    in-depth study, analyzing cardiac signals from more than 160,000 files from 19
+                                    databases of the Physionet public repository and basing our analysis on the NIST
+                                    800-90B recommendation.</span>
+                            </p>
+                            <button onclick="toggleAbstract('abstract4')"
+                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <span id="abstract4-btn">Show more</span>
+                            </button>
+                        </div>
+                        <!-- <a href="https://arxiv.org/pdf/2202.02807" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                            View PDF
+                        </a> -->
+                    </div>
+                    <!-- Publication 5 -->
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Feasibility Analysis of Inter-Pulse Intervals
+                            Based Solutions for Cryptographic Token Generation by Two Electrocardiogram Sensors (2019)
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo
+                            Picazo-Sanchez, Pedro Peris-Lopez, Juan Tapiador, Gerardo Schneider.</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Journal of Future Generation
+                            Computer Systems</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-700">
+                                <span id="abstract5-short"><strong>Abstract:</strong> In this paper we address the
+                                    problem of how two devices that are sensing the same heart signal can generate the
+                                    same cryptographic token by extracting them from the Inter-Pulse Intervals (IPIs) of
+                                    each cardiac signal. Our analysis is based on ...</span>
+                                <span id="abstract5-full" class="hidden"><strong>Abstract:</strong> In this paper we
+                                    address the problem of how two devices that are sensing the same heart signal can
+                                    generate the same cryptographic token by extracting them from the Inter-Pulse
+                                    Intervals (IPIs) of each cardiac signal. Our analysis is based on the use of a
+                                    run-time monitor, which is extracted from a formal model and verified against
+                                    predefined properties, combined with a fuzzy extractor to improve the final result.
+                                    We first show that it is impossible, in general, to correct the differences between
+                                    the IPIs derived from two captured electrocardiogram (ECG) signals when using only
+                                    error correction techniques, thus being impossible to corroborate previous claims on
+                                    the feasibility of this approach. Then, we provide a large-scale evaluation of the
+                                    proposed method (run-time monitor and fuzzy extractor) over 19 public databases from
+                                    the Physionet repository containing heart signals. The results clearly show the
+                                    practicality of our proposal achieving a 91% of synchronization probability for
+                                    healthy individuals. Additionally, we also conduct an experiment to check how long
+                                    the sensors should record the heart signal in order to generate tokens of 32, 64 and
+                                    128 bits. Contrarily to what it is usually assumed (6, 12, and 24 s for individuals
+                                    with a heart rate of 80 beats-per-minute), the sensors have to wait 13, 28 and 56.5
+                                    s on median, respectively, to derive the same token from both sensors.</span>
+                            </p>
+                            <button onclick="toggleAbstract('abstract5')"
+                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <span id="abstract5-btn">Show more</span>
+                            </button>
+                        </div>
+                        <!-- <a href="https://arxiv.org/pdf/2202.02807" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                            View PDF
+                        </a> -->
+                    </div>
+                    <!-- Publication 7 -->
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Heartbeats Do Not Make Good Pseudo-Random
+                            Number Generators: An Analysis of the Randomness of Inter-Pulse Intervals (2018)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo
+                            Picazo-Sanchez, Pedro Peris-Lopez, Juan Tapiador</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Entropy </p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-700">
+                                <span id="abstract7-short"><strong>Abstract:</strong> The proliferation of wearable and
+                                    implantable medical devices has given rise to an interest in developing security
+                                    schemes suitable for these systems and the environment in which they operate. One
+                                    area that has received much attention lately is the use of (human) biological
+                                    ...</span>
+                                <span id="abstract7-full" class="hidden"><strong>Abstract:</strong> The proliferation of
+                                    wearable and implantable medical devices has given rise to an interest in developing
+                                    security schemes suitable for these systems and the environment in which they
+                                    operate. One area that has received much attention lately is the use of (human)
+                                    biological signals as the basis for biometric authentication, identification and the
+                                    generation of cryptographic keys. The heart signal (e.g., as recorded in an
+                                    electrocardiogram) has been used by several researchers in the last few years.
+                                    Specifically, the so-called Inter-Pulse Intervals (IPIs), which is the time between
+                                    two consecutive heartbeats, have been repeatedly pointed out as a potentially good
+                                    source of entropy and are at the core of various recent authentication protocols. In
+                                    this work, we report the results of a large-scale statistical study to determine
+                                    whether such an assumption is (or not) upheld. For this, we have analyzed 19 public
+                                    datasets of heart signals from the Physionet repository, spanning electrocardiograms
+                                    from 1353 subjects sampled at different frequencies and with lengths that vary
+                                    between a few minutes and several hours. We believe this is the largest dataset on
+                                    this topic analyzed in the literature. We have then applied a standard battery of
+                                    randomness tests to the extracted IPIs. Under the algorithms described in this paper
+                                    and after analyzing these 19 public ECG datasets, our results raise doubts about the
+                                    use of IPI values as a good source of randomness for cryptographic purposes. This
+                                    has repercussions both in the security of some of the protocols proposed up to now
+                                    and also in the design of future IPI-based schemes.</span>
+                            </p>
+                            <button onclick="toggleAbstract('abstract7')"
+                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <span id="abstract7-btn">Show more</span>
+                            </button>
+                        </div>
+                        <a href="https://www.mdpi.com/1099-4300/20/2/94/pdf?version=1517300225" target="_blank"
+                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                            View PDF
+                        </a>
+                    </div>
+                    <!-- Publication 8 -->
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Weaknesses of Fingerprint-based Mutual
+                            Authentication Protocol (2014)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
+                            Ortiz-Martin, Pedro Peris-Lopez, Nasour Bagheri</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Security and Communication
+                            Networks</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-700">
+                                <span id="abstract8-short"><strong>Abstract:</strong> The Internet of Things is an
+                                    emerging paradigm, which is used to link physical objects with Internet. One of the
+                                    most common ways of communicating and identifying objects on Internet of Things is
+                                    using Radio Frequency IDentification (RFID) systems between different objects
+                                    ...</span>
+                                <span id="abstract8-full" class="hidden"><strong>Abstract:</strong> The Internet of
+                                    Things is an emerging paradigm, which is used to link physical objects with
+                                    Internet. One of the most common ways of communicating and identifying objects on
+                                    Internet of Things is using Radio Frequency IDentification (RFID) systems between
+                                    different objects. Researchers have focused on developing improvements of RFID
+                                    authentication protocols that stave off privacy threats and well-known security
+                                    problems. Recently, Khor et al. have proposed a new authentication protocol that
+                                    conforms to the Electronic Product Code Class-1 Generation-2 standard (ISO/IEC
+                                    18000-6C for RFID systems). In this paper, we show the vulnerabilities of this
+                                    authentication protocol concerning to full disclosure, impersonation, traceability,
+                                    de-synchronization, and Denial-of-Service attacks. These attacks make the protocol
+                                    unfeasible to introduce it with an adequate security and sufficient privacy
+                                    protection level. Finally, we present a new protocol, called Fingerprint+ protocol,
+                                    which is based on ISO/IEC 9798-2 and ISO/IEC 18000-6C and whose security is formally
+                                    verified using BAN logic. Copyright © 2014 John Wiley & Sons, Ltd.</span>
+                            </p>
+                            <button onclick="toggleAbstract('abstract8')"
+                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <span id="abstract8-btn">Show more</span>
+                            </button>
+                        </div>
+                        <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/sec.1161" target="_blank"
+                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                            View PDF
+                        </a>
+                    </div>
+                    <!-- Publication 9 -->
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Cryptanalysis of the RNTS system (2013)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
+                            Ortiz-Martin, Pedro Peris-Lopez, Julio C. Hernandez-Castro.</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> The Journal of
+                            Supercomputing </p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-700">
+                                <span id="abstract9-short"><strong>Abstract:</strong> Internet of Things is a paradigm
+                                    that enables communication between different devices connected to a local network or
+                                    to Internet. Identification and communication between sensors used in Internet of
+                                    Things and devices like smart-phones or tablets are established using radio
+                                    frequency ...</span>
+                                <span id="abstract9-full" class="hidden"><strong>Abstract:</strong> Internet of Things
+                                    is a paradigm that enables communication between different devices connected to a
+                                    local network or to Internet. Identification and communication between sensors used
+                                    in Internet of Things and devices like smart-phones or tablets are established using
+                                    radio frequency identification technology. However, this technology still has
+                                    several security and privacy issues because of its severe computational constraints.
+                                    In 2011, Jeong and Anh proposed the combined use of an authentication radio
+                                    frequency identification protocol together with a ticket issuing system for bank
+                                    services (in J. Supercomput. 55:307, 2011). In this paper we show that their message
+                                    generation is weak, because it abuses the XOR operation and the use of a counter,
+                                    which leaks too much secret protocol information. Our analysis shows important
+                                    security faults that ruin most of the security properties claimed in the original
+                                    paper. More precisely, information privacy (via a disclosure and leakage attack) and
+                                    location privacy (traceability attack) are both compromised. Moreover, an attacker
+                                    can disrupt the proper working of the system by exploiting the fact that message
+                                    integrity is not properly checked.</span>
+                            </p>
+                            <button onclick="toggleAbstract('abstract9')"
+                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <span id="abstract9-btn">Show more</span>
+                            </button>
+                        </div>
+                        <!-- <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/sec.1161" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                            View PDF
+                        </a> -->
+                    </div>
+                    <!-- Publication 10 -->
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">"Security of EPC Class-1." Security and Trends
+                            in Wireless Identification and Sensing Platform Tags: Advancements in RFID. (2013)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
+                            Ortiz-Martin, Pedro Peris-Lopez, Julio C. Hernandez-Castro.</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Book Chapters</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> IGI Global</p>
+                        <div class="mb-4">
+                            <!-- <p class="text-sm text-gray-700">
+                                <span id="abstract10-short"><strong>Abstract:</strong> Internet of Things is a paradigm that enables communication between different devices connected to a local network or to Internet. Identification and communication between sensors used in Internet of Things and devices like smart-phones or tablets are established using radio frequency ...</span>
+                                <span id="abstract10-full" class="hidden"><strong>Abstract:</strong> Internet of Things is a paradigm that enables communication between different devices connected to a local network or to Internet. Identification and communication between sensors used in Internet of Things and devices like smart-phones or tablets are established using radio frequency identification technology. However, this technology still has several security and privacy issues because of its severe computational constraints. In 2011, Jeong and Anh proposed the combined use of an authentication radio frequency identification protocol together with a ticket issuing system for bank services (in J. Supercomput. 55:307, 2011). In this paper we show that their message generation is weak, because it abuses the XOR operation and the use of a counter, which leaks too much secret protocol information. Our analysis shows important security faults that ruin most of the security properties claimed in the original paper. More precisely, information privacy (via a disclosure and leakage attack) and location privacy (traceability attack) are both compromised. Moreover, an attacker can disrupt the proper working of the system by exploiting the fact that message integrity is not properly checked.</span>
+                            </p>
+                            <button onclick="toggleAbstract('abstract10')" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <span id="abstract10-btn">Show more</span>
+                            </button> -->
+                        </div>
+                        <!-- <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/sec.1161" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                            View PDF
+                        </a> -->
+                    </div>
+                    <!-- Publication 11 -->
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">ECG Dj: Heart Beat Synchronization (2017)</h3>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Lara Ortiz-Martin, Pedro
+                            Peris-Lopez, Pablo Picazo-Sanchez, Gerardo Schneider, Juan Tapiador</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Poster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> USENIX </p>
+                        <div class="mb-4">
+                            <!-- <p class="text-sm text-gray-700">
+                                <span id="abstract10-short"><strong>Abstract:</strong> Internet of Things is a paradigm that enables communication between different devices connected to a local network or to Internet. Identification and communication between sensors used in Internet of Things and devices like smart-phones or tablets are established using radio frequency ...</span>
+                                <span id="abstract10-full" class="hidden"><strong>Abstract:</strong> Internet of Things is a paradigm that enables communication between different devices connected to a local network or to Internet. Identification and communication between sensors used in Internet of Things and devices like smart-phones or tablets are established using radio frequency identification technology. However, this technology still has several security and privacy issues because of its severe computational constraints. In 2011, Jeong and Anh proposed the combined use of an authentication radio frequency identification protocol together with a ticket issuing system for bank services (in J. Supercomput. 55:307, 2011). In this paper we show that their message generation is weak, because it abuses the XOR operation and the use of a counter, which leaks too much secret protocol information. Our analysis shows important security faults that ruin most of the security properties claimed in the original paper. More precisely, information privacy (via a disclosure and leakage attack) and location privacy (traceability attack) are both compromised. Moreover, an attacker can disrupt the proper working of the system by exploiting the fact that message integrity is not properly checked.</span>
+                            </p>
+                            <button onclick="toggleAbstract('abstract10')" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <span id="abstract10-btn">Show more</span>
+                            </button> -->
+                        </div>
+                        <a href="https://lightweightcryptography.com/wp-content/papercite-data/pdf/c42martinperis2017.pdf"
+                            target="_blank"
+                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                            View PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Contact</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Email Card -->
+                    <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center">
+                                <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Email</h3>
+                        <p class="text-gray-600 mb-4">Get in touch via email</p>
+                        <a href="mailto:aylara551.js@gmail.com"
+                            class="inline-block bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
+                            Send Email
+                        </a>
+                    </div>
+
+                    <!-- LinkedIn Card -->
+                    <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                                <img src="linkfull.png" alt="LinkedIn" class="w-8 h-8 rounded">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">LinkedIn</h3>
+                        <p class="text-gray-600 mb-4">Connect professionally</p>
+                        <a href="https://www.linkedin.com/in/lara-ortiz-martín-26393940" target="_blank"
+                            class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
+                            Connect
+                        </a>
+                    </div>
+
+                    <!-- GitHub Card -->
+                    <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                                <img src="github.png" alt="GitHub" class="w-8 h-8">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">GitHub</h3>
+                        <p class="text-gray-600 mb-4">Check out my code</p>
+                        <a href="https://github.com/aylara551js" target="_blank"
+                            class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-900 transition">
+                            Follow
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Additional Contact Info -->
+                <div class="mt-12 text-center">
+                    <p class="text-gray-600">
+                        Feel free to reach out for collaboration opportunities, research discussions, or just to say
+                        hello!
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p>&copy; 2025 Lara Ortiz-Martín. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function toggleAbstract(abstractId) {
+            const shortText = document.getElementById(abstractId + '-short');
+            const fullText = document.getElementById(abstractId + '-full');
+            const button = document.getElementById(abstractId + '-btn');
+
+            if (fullText.classList.contains('hidden')) {
+                shortText.classList.add('hidden');
+                fullText.classList.remove('hidden');
+                button.textContent = 'Show less';
+            } else {
+                shortText.classList.remove('hidden');
+                fullText.classList.add('hidden');
+                button.textContent = 'Show more';
+            }
+        }
+    </script>
+</body>
+
+</html>
