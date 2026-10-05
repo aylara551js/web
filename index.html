@@ -100,7 +100,9 @@
       ],
       "sameAs": [
         "https://www.linkedin.com/in/lara-ortiz-mart%C3%ADn-26393940",
-        "https://github.com/aylara551js"
+        "https://github.com/aylara551js",
+        "https://scholar.google.com/citations?user=BLeTBh0AAAAJ&hl=en",
+        "https://www.researchgate.net/profile/Lara-Ortiz-Martin"
       ]
     }
   </script>
@@ -338,7 +340,13 @@
     .abstract-toggle { border: 0; margin-left: 4px; background: none; padding: 0; color: var(--terracotta); font: inherit; font-weight: 700; cursor: pointer; }
     .abstract-toggle:focus-visible { outline: 3px solid var(--coral); outline-offset: 2px; }
     .publication-link { align-self: start; justify-self: end; white-space: nowrap; }
-    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 27px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 27px; }
+    .contact-grid > .contact-item { grid-column: span 2; }
+    .contact-grid > .contact-item:nth-last-child(-n+2) { grid-column: span 3; }
+    @media (min-width: 1100px) {
+      .contact-grid { grid-template-columns: repeat(5, 1fr); }
+      .contact-grid > .contact-item, .contact-grid > .contact-item:nth-last-child(-n+2) { grid-column: auto; }
+    }
     .contact-item { min-height: 220px; display: flex; flex-direction: column; align-items: center; padding: 22px 18px; border: 1px solid rgb(255 255 255 / 24%); text-align: center; }
     .contact-icon { width: 58px; height: 58px; display: grid; place-items: center; margin-bottom: 14px; border: 1px solid var(--line); border-radius: 50%; background: #fff; color: var(--ink); }
     .contact-icon svg { width: 30px; height: 30px; }
@@ -350,6 +358,7 @@
 
     @media (max-width: 760px) {
       .education-grid, .contact-grid { grid-template-columns: 1fr; }
+      .contact-grid > .contact-item, .contact-grid > .contact-item:nth-last-child(-n+2) { grid-column: auto; }
       .education-item + .education-item { border-left: 0; padding-left: 0; }
       .education-item { min-height: 0; }
       .experience-list { grid-template-columns: 1fr; }
@@ -806,6 +815,14 @@
           <article class="contact-item">
             <span class="contact-icon" aria-hidden="true"><img src="github.webp" alt="" loading="lazy"></span>
             <h3>GitHub</h3><p>Check out my code</p><a href="https://github.com/aylara551js" target="_blank" rel="noreferrer">Follow ↗</a>
+          </article>
+          <article class="contact-item">
+            <span class="contact-icon" aria-hidden="true"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422A12.08 12.08 0 0119 14.5c0 2-3.134 3.5-7 3.5s-7-1.5-7-3.5c0-1.2.2-2.4.84-3.922L12 14z"></path></svg></span>
+            <h3>Google Scholar</h3><p>Browse my publications</p><a href="https://scholar.google.com/citations?user=BLeTBh0AAAAJ&amp;hl=en" target="_blank" rel="noreferrer">View Profile ↗</a>
+          </article>
+          <article class="contact-item">
+            <span class="contact-icon" aria-hidden="true"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg></span>
+            <h3>ResearchGate</h3><p>Follow my research</p><a href="https://www.researchgate.net/profile/Lara-Ortiz-Martin" target="_blank" rel="noreferrer">View Profile ↗</a>
           </article>
         </div>
         <p class="contact-note">Feel free to reach out for collaboration opportunities, research discussions, or just to say hello!</p>
