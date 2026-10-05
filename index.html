@@ -1,786 +1,851 @@
-<!DOCTYPE html>
-<html lang="es">
-
+<!doctype html>
+<html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NQJBY65PJS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-NQJBY65PJS');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aylara551js - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/png" href="lara.jpg">
-    <li </head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NQJBY65PJS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-NQJBY65PJS');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f4">
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+  <meta name="description" content="Lara Ortiz-Martín is a Frontend Architect and Researcher with a PhD in Computer Science and 14+ years of experience.">
+  <title>Lara Ortiz-Martín | Frontend Architect &amp; Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fff;
+      --white: #fff;
+      --ink: #181818;
+      --muted: #656565;
+      --line: #dedede;
+      --terracotta: #c21882;
+      --peach: #f2ede8;
+      --coral: #c21882;
+      --sage: #383838;
+      --font-display: "Space Grotesk", sans-serif;
+      --font-body: "DM Sans", sans-serif;
+      --gutter: clamp(22px, 6.4vw, 100px);
+    }
 
-<body class="bg-gray-50 text-gray-900">
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center text-2xl font-bold text-indigo-600">
-                    <a href="#" title="Main Logo" class="flex items-center">
-                        <!-- <img src="aylara551.png" alt="Logo" class="h-8 w-8 inline-block mr-2"> -->
-                        <div class="aspect-square"> <!-- Mantiene la proporción 1:1 para el círculo -->
-                            <img src="lara.jpg" alt="Perfil" class="h-10 w-10 rounded-full object-cover shadow-md">
-                        </div>
-                        <p class="ml-2">aylara551js</p>
-                    </a>
-                </div>
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex gap-12">
-                    <!-- <a href="#home" class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Home</a> -->
-                    <a href="#aboutme"
-                        class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">About</a>
-                    <a href="#education"
-                        class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Education</a>
-                    <a href="#experience"
-                        class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Experience</a>
-                    <!-- <a href="#technologies" class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Technologies</a> -->
-                    <a href="#publications"
-                        class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Publications</a>
-                    <a href="#contact"
-                        class="text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Contact</a>
-                </nav>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+    ::selection { background: var(--peach); color: var(--ink); }
+    .wrap { width: min(1280px, calc(100% - var(--gutter) * 2)); margin-inline: auto; }
 
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden p-2" onclick="toggleMenu()" aria-label="Toggle menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--paper);
+      border-bottom: 1px solid var(--ink);
+    }
+    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .header-actions { display: flex; align-items: center; gap: clamp(14px, 2.5vw, 32px); }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-mark {
+      width: 38px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--terracotta);
+      color: #fff;
+      font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: 0;
+    }
+    .brand-name { font: 600 14px var(--font-display); letter-spacing: 0; }
+    .nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 42px); }
+    .nav a { color: var(--muted); font-size: 13px; font-weight: 600; text-decoration: none; transition: color 180ms ease; }
+    .nav a:hover, .nav a:focus-visible { color: var(--ink); }
+    .nav .nav-contact { color: var(--ink); border-bottom: 1px solid var(--ink); padding: 8px 0; }
+    .menu-toggle { display: none; }
+
+    .hero { min-height: 660px; padding-block: clamp(48px, 7vw, 92px) clamp(64px, 8vw, 110px); }
+    .hero-grid { display: grid; grid-template-columns: 1.07fr .93fr; align-items: center; gap: clamp(42px, 7vw, 104px); }
+    .hero-copy { padding-block: 16px; animation: appear 700ms both; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 23px; color: var(--sage); font-size: 12px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; }
+    .eyebrow::before { width: 25px; height: 2px; background: var(--coral); content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 660px; margin-bottom: 23px; font: 500 clamp(48px, 6.5vw, 82px)/1.03 var(--font-display); letter-spacing: 0; }
+    h1 span { color: var(--terracotta); }
+    .hero-lede { max-width: 520px; margin-bottom: 32px; color: #625a54; font-size: clamp(17px, 1.65vw, 20px); line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+    .button-primary {
+      min-height: 51px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 12px 19px;
+      border: 1px solid var(--ink);
+      border-radius: 2px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+    .button-primary:hover { transform: translateY(-2px); background: var(--terracotta); }
+    .button-primary:focus-visible, .text-link:focus-visible, .nav a:focus-visible, .menu-toggle:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
+    .button-primary span { font-size: 18px; line-height: 1; }
+    .text-link { color: var(--ink); font-size: 13px; font-weight: 700; text-decoration-color: #aab4ac; text-underline-offset: 5px; }
+
+    .portrait-wrap { position: relative; width: 100%; max-width: 500px; justify-self: end; animation: appear 850ms 100ms both; }
+    .portrait-frame { position: relative; overflow: hidden; aspect-ratio: .89; background: #eee; border-radius: 0; }
+    .portrait-frame::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 62%, rgb(43 37 34 / 25%)); content: ""; pointer-events: none; }
+    .portrait-frame img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 38%; filter: grayscale(1); }
+    .portrait-note { position: absolute; z-index: 1; bottom: 18px; left: 24px; margin: 0; color: #fff; font-size: 10px; line-height: 1.4; }
+    .experience-tag { position: absolute; top: 13%; right: -35px; display: grid; width: 112px; aspect-ratio: 1; place-content: center; border: 7px solid var(--paper); border-radius: 0; background: var(--peach); text-align: center; transform: rotate(0); }
+    .experience-tag strong { font: 700 28px/.95 var(--font-display); }
+    .experience-tag span { margin-top: 5px; font-size: 10px; font-weight: 700; line-height: 1.25; }
+    .credentials { background: var(--ink); color: var(--white); }
+    .credentials-inner { min-height: 112px; display: grid; grid-template-columns: 1.1fr 1fr 1fr; align-items: center; gap: 28px; padding-block: 23px; }
+    .credentials-label { margin: 0; color: #f4e3d9; font-size: 12px; }
+    .credential { min-height: 52px; display: flex; align-items: center; gap: 14px; border-left: 1px solid rgb(255 255 255 / 23%); padding-left: 24px; }
+    .credential strong { color: #ffe0aa; font: 600 25px/1 var(--font-display); white-space: nowrap; }
+    .credential span { max-width: 135px; color: #f4e3d9; font-size: 11px; line-height: 1.4; }
+
+    .section { padding-block: clamp(77px, 10vw, 130px); }
+    .section-heading { display: grid; grid-template-columns: .86fr 1.14fr; align-items: end; gap: 46px; margin-bottom: 48px; }
+    .section-kicker { margin-bottom: 15px; color: var(--terracotta); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+    h2 { max-width: 580px; margin-bottom: 0; font: 500 clamp(37px, 5vw, 58px)/1.08 var(--font-display); letter-spacing: 0; }
+    .section-intro { max-width: 550px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+    #aboutme.section { padding-bottom: clamp(44px, 4.5vw, 64px); }
+    #aboutme .section-heading { grid-template-columns: .65fr 1.35fr; align-items: start; gap: clamp(28px, 5vw, 72px); margin-bottom: 32px; }
+    .about-description { max-width: 760px; }
+    .about-description p { margin: 0 0 15px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .about-description .about-lead { color: var(--ink); font-size: 17px; font-weight: 500; }
+    .about-description p:last-child { margin-bottom: 0; }
+    .interest-block { display: flex; align-items: baseline; gap: 22px; margin-top: clamp(56px, 6vw, 88px); border-top: 1px solid var(--line); padding-top: 15px; }
+    .interest-block h3 { flex: 0 0 auto; margin: 0; color: var(--muted); font-size: 10px; font-weight: 700; text-transform: uppercase; }
+    .interest-list { display: flex; flex-wrap: wrap; gap: 8px 0; margin: 0; padding: 0; list-style: none; }
+    .interest-list li { border-left: 1px solid var(--line); padding: 0 12px; color: var(--ink); font-size: 11px; line-height: 1.5; }
+    .interest-list li:first-child { border-left: 0; padding-left: 0; }
+
+    .profile { background: #f3f3f3; }
+    .profile-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: start; gap: clamp(55px, 11vw, 155px); }
+    .profile-aside { position: sticky; top: 35px; }
+    .profile-aside h2 { margin-bottom: 22px; }
+    .profile-aside .section-intro { max-width: 350px; }
+    .profile-copy { border-top: 1px solid #d8cdc5; }
+    .profile-row { display: grid; grid-template-columns: 115px 1fr; gap: 22px; padding: 22px 0; border-bottom: 1px solid #d8cdc5; }
+    .profile-row dt { color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+    .profile-row dd { margin: 0; color: #5c504a; font-size: 14px; line-height: 1.8; }
+    .profile-row dd strong { color: var(--ink); font-weight: 700; }
+
+    .contact { padding-block: clamp(80px, 10vw, 126px); background: var(--ink); color: var(--white); }
+    .contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 36px; }
+    .contact .section-kicker { color: #f18ac5; }
+    .contact h2 { max-width: 680px; }
+    .contact-copy { max-width: 425px; margin: 20px 0 0; color: #f8e9e1; font-size: 14px; }
+    .contact .button-primary { flex: 0 0 auto; background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .contact .button-primary:hover { background: #383838; border-color: #383838; }
+    .site-footer { padding-block: 23px; border-top: 1px solid #d5d5d5; background: #ececec; color: var(--ink); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer-inner p { margin: 0; color: var(--muted); font-size: 11px; }
+    .footer-name { font: 600 12px var(--font-display); }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 600ms ease, transform 600ms ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @keyframes appear { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 760px) {
+      :root { --gutter: 25px; }
+      .header-inner { min-height: 70px; }
+      .header-actions { gap: 12px; }
+      .menu-toggle { width: 42px; height: 42px; display: grid; place-content: center; gap: 5px; border: 1px solid var(--line); border-radius: 2px; background: transparent; color: var(--ink); cursor: pointer; }
+      .menu-toggle span { width: 17px; height: 1.5px; display: block; background: currentColor; transition: transform 180ms ease; }
+      .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.25px) rotate(45deg); }
+      .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+      .nav { position: absolute; top: 69px; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; border-bottom: 1px solid var(--line); padding: 7px var(--gutter) 14px; background: var(--paper); }
+      .nav.is-open { display: flex; }
+      .nav a { padding: 12px 0; }
+      .nav .nav-contact { align-self: flex-start; margin-top: 3px; }
+      .hero { min-height: unset; padding-block: 46px 74px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 38px; }
+      .hero-copy { padding: 0; }
+      h1 { max-width: 510px; font-size: clamp(48px, 13vw, 71px); }
+      .hero-lede { max-width: 440px; }
+      .portrait-wrap { width: min(88%, 390px); justify-self: center; margin-right: 16px; }
+      .experience-tag { right: -29px; width: 96px; }
+      .experience-tag strong { font-size: 25px; }
+      .credentials-inner { grid-template-columns: 1fr 1fr; gap: 17px; padding-block: 22px; }
+      .credentials-label { grid-column: 1 / -1; }
+      .credential { padding-left: 13px; }
+      .credential strong { font-size: 21px; }
+      .credential span { font-size: 10px; }
+      .section-heading { grid-template-columns: 1fr; gap: 19px; margin-bottom: 34px; }
+      #aboutme .section-heading { grid-template-columns: 1fr; gap: 18px; }
+      .interest-block { align-items: flex-start; flex-direction: column; gap: 9px; }
+      .profile-grid { grid-template-columns: 1fr; gap: 33px; }
+      .profile-aside { position: static; }
+      #education .profile-aside { grid-template-columns: 1fr; align-items: start; gap: 12px; }
+      #education .profile-aside .section-kicker { grid-column: auto; }
+      #education .profile-aside h2 { font-size: 38px; }
+      #education .profile-aside .section-intro { max-width: none; }
+      .contact-inner { align-items: flex-start; flex-direction: column; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 7px; }
+    }
+    @media (max-width: 390px) {
+      .hero-actions { align-items: flex-start; flex-direction: column; gap: 17px; }
+      .profile-row { grid-template-columns: 84px 1fr; gap: 12px; }
+    }
+
+    .education-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+    #education .profile-grid { grid-template-columns: 1fr; gap: 25px; }
+    #education .profile-aside { position: static; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: end; gap: 8px 42px; }
+    #education .profile-aside .section-kicker { grid-column: 1 / -1; margin-bottom: 0; }
+    #education .profile-aside h2 { margin: 0; font-size: 44px; }
+    #education .profile-aside .section-intro { max-width: 560px; }
+    .education-item { min-height: 220px; padding: 24px 24px 24px 0; border-bottom: 1px solid var(--line); }
+    .education-item + .education-item { border-left: 1px solid var(--line); padding-left: 24px; }
+    .education-item img { width: auto; max-width: 112px; height: 35px; object-fit: contain; object-position: left center; margin-bottom: 22px; }
+    .education-item h3, .experience-item h3 { margin-bottom: 8px; font: 600 18px/1.3 var(--font-display); }
+    .education-item p, .experience-item p { margin: 0 0 8px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .education-item a, .publication-link, .contact-item a { color: var(--terracotta); font-size: 12px; font-weight: 700; text-underline-offset: 4px; }
+    .experience-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 30px; border-top: 1px solid var(--line); }
+    .experience-item { display: grid; grid-template-columns: 96px minmax(0, 1fr); grid-template-rows: auto auto 1fr; align-items: start; gap: 5px 18px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .experience-logos { width: 88px; height: 88px; grid-column: 1; grid-row: 1 / 4; display: grid; place-items: center; border: 1px solid var(--line); padding: 10px; background: var(--white); }
+    .experience-logos img { width: 100%; height: 100%; object-fit: contain; }
+    .experience-logos.dual { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+    .experience-logos.dual img { height: 34px; }
+    .experience-year { grid-column: 2; grid-row: 1; color: var(--terracotta); font: 600 11px var(--font-display); }
+    .experience-item h3 { grid-column: 2; grid-row: 2; margin: 0; }
+    .experience-item p { grid-column: 2; grid-row: 3; margin: 5px 0 0; }
+    .experience-org { display: block; margin-bottom: 5px; color: var(--ink); font-weight: 700; }
+    .publication-list { border-top: 1px solid var(--line); }
+    .publication-item { display: grid; grid-template-columns: 1fr 100px; gap: 24px; padding: 23px 0; border-bottom: 1px solid var(--line); }
+    .publication-item h3 { max-width: 790px; margin: 0 0 12px; font: 600 18px/1.35 var(--font-display); }
+    .publication-meta { margin: 0 0 4px; color: var(--muted); font-size: 11px; line-height: 1.65; }
+    .publication-item .abstract { max-width: 760px; margin: 12px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .publication-item .abstract strong { color: var(--ink); }
+    .abstract-rest { display: block; max-height: 0; overflow: hidden; transition: max-height 320ms ease; }
+    .abstract-rest.is-open { margin-top: 6px; }
+    .abstract-toggle { border: 0; margin-left: 4px; background: none; padding: 0; color: var(--terracotta); font: inherit; font-weight: 700; cursor: pointer; }
+    .abstract-toggle:focus-visible { outline: 3px solid var(--coral); outline-offset: 2px; }
+    .publication-link { align-self: start; justify-self: end; white-space: nowrap; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 27px; }
+    .contact-item { min-height: 220px; display: flex; flex-direction: column; align-items: center; padding: 22px 18px; border: 1px solid rgb(255 255 255 / 24%); text-align: center; }
+    .contact-icon { width: 58px; height: 58px; display: grid; place-items: center; margin-bottom: 14px; border: 1px solid var(--line); border-radius: 50%; background: #fff; color: var(--ink); }
+    .contact-icon svg { width: 30px; height: 30px; }
+    .contact-icon img { width: 32px; height: 32px; object-fit: contain; }
+    .contact-item h3 { margin: 0 0 5px; font: 600 17px var(--font-display); }
+    .contact-item p { margin: 0 0 12px; color: inherit; font-size: 12px; opacity: .82; }
+    .contact-item a { margin-top: auto; color: #f18ac5; text-underline-offset: 4px; }
+    .contact-note { margin: 23px 0 0; color: inherit; font-size: 13px; }
+
+    @media (max-width: 760px) {
+      .education-grid, .contact-grid { grid-template-columns: 1fr; }
+      .education-item + .education-item { border-left: 0; padding-left: 0; }
+      .education-item { min-height: 0; }
+      .experience-list { grid-template-columns: 1fr; }
+      .experience-item { grid-template-columns: 66px minmax(0, 1fr); gap: 5px 14px; padding: 18px 0; }
+      .experience-logos { width: 60px; height: 60px; grid-row: 1 / 4; padding: 6px; }
+      .experience-logos.dual img { height: 30px; }
+      .publication-item { grid-template-columns: 1fr; gap: 11px; }
+      .publication-link { justify-self: start; }
+      #education .profile-grid { grid-template-columns: 1fr; gap: 25px; }
+      #education .profile-aside { grid-template-columns: 1fr; align-items: start; gap: 12px; }
+      #education .profile-aside .section-kicker { grid-column: auto; }
+      #education .profile-aside h2 { font-size: 38px; }
+      #education .profile-aside .section-intro { max-width: none; }
+    }
+
+    /* =========================================================
+       Theme Toggle Button
+       ========================================================= */
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 180ms ease, border-color 180ms ease, transform 180ms ease, color 180ms ease;
+      margin-left: 8px;
+    }
+    .theme-toggle:hover {
+      background: var(--peach);
+      transform: scale(1.08);
+    }
+    .theme-toggle:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 2px;
+    }
+    .theme-toggle svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+    .theme-toggle .icon-moon {
+      display: block;
+    }
+    .theme-toggle .icon-sun {
+      display: none;
+    }
+
+    /* In dark theme, toggle icons */
+    [data-theme="dark"] .theme-toggle .icon-moon {
+      display: none !important;
+    }
+    [data-theme="dark"] .theme-toggle .icon-sun {
+      display: block !important;
+    }
+
+    /* =========================================================
+       Dark Theme Styles
+       ========================================================= */
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #121212;
+      --white: #1e1e1e;
+      --ink: #f0f0f0;
+      --muted: #a0a0a0;
+      --line: #2e2e2e;
+      --peach: #262626;
+      --sage: #c2c2c2;
+      --terracotta: #e04da0;
+      --coral: #e04da0;
+    }
+    [data-theme="dark"] body {
+      background: var(--paper);
+      color: var(--ink);
+    }
+    [data-theme="dark"] .brand-mark {
+      color: #000;
+    }
+    [data-theme="dark"] .site-header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+    [data-theme="dark"] .nav {
+      background: var(--paper);
+    }
+    [data-theme="dark"] .nav a:hover,
+    [data-theme="dark"] .nav a:focus-visible {
+      color: var(--ink);
+    }
+    [data-theme="dark"] .nav .nav-contact {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+    [data-theme="dark"] .menu-toggle {
+      border-color: var(--line);
+      color: var(--ink);
+    }
+    [data-theme="dark"] .hero-lede {
+      color: #b0b0b0;
+    }
+    [data-theme="dark"] .portrait-frame {
+      background: #252525;
+    }
+    [data-theme="dark"] .portrait-frame::after {
+      background: linear-gradient(180deg, transparent 62%, rgb(0 0 0 / 65%));
+    }
+    [data-theme="dark"] .credentials {
+      background: #181818;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    [data-theme="dark"] .credentials-label {
+      color: var(--muted);
+    }
+    [data-theme="dark"] .credential {
+      border-left: 1px solid var(--line);
+    }
+    [data-theme="dark"] .credential strong {
+      color: #ffe0aa;
+    }
+    [data-theme="dark"] .credential span {
+      color: var(--muted);
+    }
+    [data-theme="dark"] .profile {
+      background: #181818;
+    }
+    [data-theme="dark"] .profile-copy {
+      border-top-color: var(--line);
+    }
+    [data-theme="dark"] .profile-row {
+      border-bottom-color: var(--line);
+    }
+    [data-theme="dark"] .profile-row dd {
+      color: #b5b5b5;
+    }
+    [data-theme="dark"] .profile-row dd strong {
+      color: var(--ink);
+    }
+    [data-theme="dark"] .education-grid {
+      border-top-color: var(--line);
+    }
+    [data-theme="dark"] .education-item {
+      border-color: var(--line);
+    }
+    [data-theme="dark"] .education-item img {
+      background: #ffffff;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+    [data-theme="dark"] .experience-logos {
+      background: #ffffff;
+      border-color: var(--line);
+      border-radius: 4px;
+    }
+    [data-theme="dark"] .publication-list,
+    [data-theme="dark"] .publication-item,
+    [data-theme="dark"] .experience-list,
+    [data-theme="dark"] .experience-item,
+    [data-theme="dark"] .interest-block {
+      border-color: var(--line);
+    }
+    [data-theme="dark"] .interest-list li {
+      border-left-color: var(--line);
+    }
+    [data-theme="dark"] .contact {
+      background: #181818;
+      border-top: 1px solid var(--line);
+      color: #f0f0f0;
+    }
+    [data-theme="dark"] .contact-copy {
+      color: #b5b5b5;
+    }
+    [data-theme="dark"] .contact-item {
+      border-color: var(--line);
+    }
+    [data-theme="dark"] .contact-icon {
+      background: #252525;
+      color: #f0f0f0;
+      border-color: var(--line);
+    }
+    [data-theme="dark"] .button-primary {
+      background: var(--ink);
+      color: #121212;
+      border-color: var(--ink);
+    }
+    [data-theme="dark"] .button-primary:hover {
+      background: var(--terracotta);
+      color: #ffffff;
+      border-color: var(--terracotta);
+    }
+    [data-theme="dark"] .contact .button-primary {
+      background: var(--ink);
+      color: #121212;
+      border-color: var(--ink);
+    }
+    [data-theme="dark"] .contact .button-primary:hover {
+      background: var(--terracotta);
+      color: #ffffff;
+      border-color: var(--terracotta);
+    }
+    [data-theme="dark"] .site-footer {
+      background: #0d0d0d;
+      border-top-color: var(--line);
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="Lara Ortiz-Martín home">
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+        <span class="brand-name">Lara Ortiz-Martín</span>
+      </a>
+      <template id="expanded-abstracts">
+          <article class="publication-item">
+            <div>
+              <h3>Evaluating the Integrity of LLM-Generated Citations: Prevalence and Risks of Fabricated References in Scientific Literature (2026)</h3>
+              <p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin · <strong>Type:</strong> Journal · <strong>Publication:</strong> Data.</p>
+              <details><summary>Abstract</summary><p>Large Language Models have become important in our lives, and academia is not agnostic to this trend, offering tools like text rephrasing and summarisation. However, this integration raises significant concerns regarding the integrity of science. In this paper, we investigate hallucinations of LLMs when generating scientific references. Using nine LLMs, we generated a dataset of 74,196 BIBTEX references to quantify and analyse fabricated references, focusing on distinguishing between intrinsic and extrinsic hallucinations. Also, we extracted and analysed 127,063 references from 3541 published papers in 2023 to assess the prevalence of fake bibliographic data. Our manual verification process identified eight instances of fabricated references. While the overall rate is statistically low, the mere existence of fabricated content in the peer-reviewed literature is a critical integrity issue, demonstrating a vulnerability in current academic validation systems. The significance of our finding is not the statistical prevalence but rather the necessity for rigorous, human-validated processes to prevent the injection of spurious citations regardless of their source.</p></details>
             </div>
-
-            <!-- Mobile Navigation Menu -->
-            <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg border-t">
-                <nav class="px-4 py-4">
-                    <ul class="space-y-3">
-                        <li><a href="#aboutme"
-                                class="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md transition"
-                                onclick="toggleMenu()">About</a></li>
-                        <li><a href="#education"
-                                class="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md transition"
-                                onclick="toggleMenu()">Education</a></li>
-                        <li><a href="#experience"
-                                class="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md transition"
-                                onclick="toggleMenu()">Experience</a></li>
-                        <li><a href="#publications"
-                                class="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md transition"
-                                onclick="toggleMenu()">Publications</a></li>
-                        <li><a href="#contact"
-                                class="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md transition"
-                                onclick="toggleMenu()">Contact</a></li>
-                    </ul>
-                </nav>
+            <a class="publication-link" href="https://www.mdpi.com/2306-5729/11/5/122" target="_blank" rel="noreferrer">View PDF ↗</a>
+          </article>
+          <article class="publication-item">
+            <div>
+              <h3>Analysing the Impact of ChatGPT in Research (2024)</h3>
+              <p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin · <strong>Type:</strong> Journal · <strong>Publication:</strong> Applied Intelligence.</p>
+              <details><summary>Abstract</summary><p>Large Language Models (LLMs) are a type of machine learning that handles a wide range of Natural Language Processing (NLP) scenarios. Recently, in December 2022, a company called OpenAI released ChatGPT, a tool that, within a few months, became the most representative example of LLMs, automatically generating unique and coherent text on many topics, summarising and rewriting it, or even translating it to other languages. ChatGPT originated some controversy in academia since students can generate unique text for writing assessments being sometimes extremely difficult to distinguish whether it comes from ChatGPT or a person. In research, some journals specifically banned ChatGPT in scientific papers. However, when used correctly, it becomes a powerful tool to rewrite, for instance, scientific papers and, thus, deliver researchers’ messages in a better way. In this paper, we conduct an empirical study of the impact of ChatGPT in research. We downloaded the abstract of over 45,000 papers from over 300 journals from Dec 2022 and Feb 2023 belonging to different research editorials. We use four of the most known ChatGPT detection tools and conclude that ChatGPT played a role in around 10% of the papers published in every editorial, showing that authors from different fields have rapidly adopted such a tool in their research.</p></details>
             </div>
+            <a class="publication-link" href="https://link.springer.com/content/pdf/10.1007/s10489-024-05298-0.pdf" target="_blank" rel="noreferrer">View PDF ↗</a>
+          </article>
+          <article class="publication-item">
+            <div>
+              <h3>Are Chrome Extensions Compliant with the Spirit of Least Privilege? (2022)</h3>
+              <p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin, Gerardo Schneider and Andrei Sabelfeld · <strong>Type:</strong> Journal · <strong>Publication:</strong> International Journal of Information Security.</p>
+              <details><summary>Abstract</summary><p>Extensions are small applications installed by users and enrich the user experience of browsing the Internet. Browsers expose a set of restricted APIs to extensions. To be used, extensions need to list the permissions associated with these APIs in a mandatory extension file named manifest. In particular, Chrome’s permission ecosystem was designed in the spirit of the least privilege. Yet, this paper demonstrates that 39.8% of the analyzed extensions provided by the official Web Store are compliant with the spirit of least privilege. Also, we develop: (1) a browser extension to make aware regular users of the permissions the extensions they install; (2) a web app where extensions developers can check whether their extensions are compliant with the spirit of the least privileged; and (3) a set of scripts that can be part of the vendors’ acceptance criteria such that when developers upload their extensions to the official repositories, the scripts automatically analyze the extensions and generate a report about the permissions and the usage.</p></details>
+            </div>
+            <a class="publication-link" href="https://link.springer.com/content/pdf/10.1007/s10207-022-00610-w.pdf" target="_blank" rel="noreferrer">View PDF ↗</a>
+          </article>
+          <article class="publication-item">
+            <div>
+              <h3>Heart-Based Biometric Protocols: A look back over almost two decades (2022)</h3>
+              <p class="publication-meta"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo Picazo-Sanchez · <strong>Publication:</strong> Arxiv.</p>
+              <details><summary>Abstract</summary><p>This article surveys the literature over the period 2003-2021 on heart-based biometric protocols. In particular, we focus on how the heart signal is transformed from a continuous wave to discrete values to be used afterwards in authentication protocols. We explain and classify the surveyed proposals according to three main parameters: i) the dataset they use for testing their results; ii) the delineation algorithms they use to extract the fiducial points, and; iii) the cryptographic tests they run (if any) to validate how random the extracted token is.</p></details>
+            </div>
+            <a class="publication-link" href="https://arxiv.org/pdf/2202.02807" target="_blank" rel="noreferrer">View PDF ↗</a>
+          </article>
+          <article class="publication-item">
+            <div>
+              <h3>Are the Interpulse Intervals of an ECG Signal a Good Source of Entropy? An In-depth Entropy Analysis Based on NIST 800-90B Recommendation (2020)</h3>
+              <p class="publication-meta"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo Picazo-Sanchez, Pedro Peris-Lopez · <strong>Type:</strong> Journal · <strong>Publication:</strong> Journal of Future Generation Computer Systems.</p>
+              <details><summary>Abstract</summary><p>In recent years many authors have explored the use of biological signals for security issues. In the context of cardiac signals, the use of Inter-Pulse Interval (IPI) values as a source of entropy is one of the most widely used solutions in the literature. To date, there is a broad consensus that the four least significant bits of each IPI are highly entropic and can be used, for instance, in the generation of a cryptographic key. In this article, we demonstrate that the choice of the IPI bits used to date may not be the most correct (e.g., the combination of bits 2638 are much better that the common assumed 5678). To come to our conclusions, we have done a rigorous and in-depth study, analyzing cardiac signals from more than 160,000 files from 19 databases of the Physionet public repository and basing our analysis on the NIST 800-90B recommendation.</p></details>
+            </div>
+          </article>
+          <article class="publication-item">
+            <div>
+              <h3>Feasibility Analysis of Inter-Pulse Intervals Based Solutions for Cryptographic Token Generation by Two Electrocardiogram Sensors (2019)</h3>
+              <p class="publication-meta"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo Picazo-Sanchez, Pedro Peris-Lopez, Juan Tapiador, Gerardo Schneider · <strong>Type:</strong> Journal · <strong>Publication:</strong> Journal of Future Generation Computer Systems.</p>
+              <details><summary>Abstract</summary><p>In this paper we address the problem of how two devices that are sensing the same heart signal can generate the same cryptographic token by extracting them from the Inter-Pulse Intervals (IPIs) of each cardiac signal. Our analysis is based on the use of a run-time monitor, which is extracted from a formal model and verified against predefined properties, combined with a fuzzy extractor to improve the final result. We first show that it is impossible, in general, to correct the differences between the IPIs derived from two captured electrocardiogram (ECG) signals when using only error correction techniques, thus being impossible to corroborate previous claims on the feasibility of this approach. Then, we provide a large-scale evaluation of the proposed method (run-time monitor and fuzzy extractor) over 19 public databases from the Physionet repository containing heart signals. The results clearly show the practicality of our proposal achieving a 91% of synchronization probability for healthy individuals. Additionally, we also conduct an experiment to check how long the sensors should record the heart signal in order to generate tokens of 32, 64 and 128 bits. Contrarily to what it is usually assumed (6, 12, and 24 s for individuals with a heart rate of 80 beats-per-minute), the sensors have to wait 13, 28 and 56.5 s on median, respectively, to derive the same token from both sensors.</p></details>
+            </div>
+          </article>
+          <article class="publication-item">
+            <div>
+              <h3>Heartbeats Do Not Make Good Pseudo-Random Number Generators: An Analysis of the Randomness of Inter-Pulse Intervals (2018)</h3>
+              <p class="publication-meta"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo Picazo-Sanchez, Pedro Peris-Lopez, Juan Tapiador · <strong>Type:</strong> Journal · <strong>Publication:</strong> Entropy.</p>
+              <details><summary>Abstract</summary><p>The proliferation of wearable and implantable medical devices has given rise to an interest in developing security schemes suitable for these systems and the environment in which they operate. One area that has received much attention lately is the use of (human) biological signals as the basis for biometric authentication, identification and the generation of cryptographic keys. The heart signal (e.g., as recorded in an electrocardiogram) has been used by several researchers in the last few years. Specifically, the so-called Inter-Pulse Intervals (IPIs), which is the time between two consecutive heartbeats, have been repeatedly pointed out as a potentially good source of entropy and are at the core of various recent authentication protocols. In this work, we report the results of a large-scale statistical study to determine whether such an assumption is (or not) upheld. For this, we have analyzed 19 public datasets of heart signals from the Physionet repository, spanning electrocardiograms from 1353 subjects sampled at different frequencies and with lengths that vary between a few minutes and several hours. We believe this is the largest dataset on this topic analyzed in the literature. We have then applied a standard battery of randomness tests to the extracted IPIs. Under the algorithms described in this paper and after analyzing these 19 public ECG datasets, our results raise doubts about the use of IPI values as a good source of randomness for cryptographic purposes. This has repercussions both in the security of some of the protocols proposed up to now and also in the design of future IPI-based schemes.</p></details>
+            </div>
+            <a class="publication-link" href="https://www.mdpi.com/1099-4300/20/2/94/pdf?version=1517300225" target="_blank" rel="noreferrer">View PDF ↗</a>
+          </article>
+          <article class="publication-item">
+            <div>
+              <h3>Weaknesses of Fingerprint-based Mutual Authentication Protocol (2014)</h3>
+              <p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin, Pedro Peris-Lopez, Nasour Bagheri · <strong>Type:</strong> Journal · <strong>Publication:</strong> Security and Communication Networks.</p>
+              <details><summary>Abstract</summary><p>The Internet of Things is an emerging paradigm, which is used to link physical objects with Internet. One of the most common ways of communicating and identifying objects on Internet is using radio frequency identification (RFID) systems between different objects. Researchers have focused on developing improvements of RFID authentication protocols that stave off privacy threats and well-known security problems. Recently, Khor et al. have proposed a new authentication protocol that conforms to the Electronic Product Code Class-1 Generation-2 standard (ISO/IEC 18000-6C for RFID systems). In this paper, we show the vulnerabilities of this authentication protocol concerning to full disclosure, impersonation, traceability, de-synchronization, and Denial-of-Service attacks. These attacks make the protocol unfeasible to introduce it with an adequate security and sufficient privacy protection level. Finally, we present a new protocol, called Fingerprint+ protocol, which is based on ISO/IEC 9798-2 and ISO/IEC 18000-6C and whose security is formally verified using BAN logic. Copyright © 2014 John Wiley &amp; Sons, Ltd.</p></details>
+            </div>
+            <a class="publication-link" href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/sec.1161" target="_blank" rel="noreferrer">View PDF ↗</a>
+          </article>
+          <article class="publication-item">
+            <div>
+              <h3>Cryptanalysis of the RNTS system (2013)</h3>
+              <p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin, Pedro Peris-Lopez, Julio C. Hernandez-Castro · <strong>Type:</strong> Journal · <strong>Publication:</strong> The Journal of Supercomputing.</p>
+              <details><summary>Abstract</summary><p>Internet of Things is a paradigm that enables communication between different devices connected to a local network or to Internet. Identification and communication between sensors used on Internet of Things and devices like smart-phones or tablets are established using radio frequency identification technology. However, this technology still has several security and privacy issues because of its severe computational constraints. In 2011, Jeong and Anh proposed the combined use of an authentication radio frequency identification protocol together with a ticket issuing system for bank services (in J. Supercomput. 55:307, 2011). In this paper we show that their message generation is weak, because it abuses the XOR operation and the use of a counter, which leaks too much secret protocol information. Our analysis shows important security faults that ruin most of the security properties claimed in the original paper. More precisely, information privacy (via a disclosure and leakage attack) and location privacy (traceability attack) are both compromised. Moreover, an attacker can disrupt the proper working of the system by exploiting the fact that message integrity is not properly checked.</p></details>
+            </div>
+          </article>
+      </template>
+      <div class="header-actions">
+        <nav class="nav" id="site-nav" aria-label="Main navigation">
+          <a href="#aboutme">About</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
+          <a href="#publications">Publications</a>
+          <a class="nav-contact" href="#contacto">Contact <span aria-hidden="true">↗</span></a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Frontend Architect &amp; Researcher</p>
+          <h1 id="hero-title">Lara<br><span>Ortiz-Martín</span></h1>
+          <p class="hero-lede">PhD in Computer Science specializing in System Security and Front-End Architect building web applications with 14+ years of experience.</p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#aboutme">Learn More <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#contacto">Get In Touch</a>
+          </div>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <section id="home" class="h-screen flex items-center justify-center bg-gray-100">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Lara Ortiz-Martín</h1>
-                <h2 class="text-2xl md:text-3xl text-indigo-600 font-semibold mb-4">Frontend Architect & Researcher</h2>
-                <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-                    PhD in Computer Science specializing in System Security and Front-End Architect building web
-                    applications with 14+ years of experience.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#aboutme"
-                        class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">
-                        Learn More
-                    </a>
-                    <a href="#contact"
-                        class="px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg font-semibold hover:bg-indigo-600 hover:text-white transition">
-                        Get In Touch
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About me Section -->
-        <section id="aboutme" class="py-20 md:py-32 bg-white">
-            <div class="flex flex-col md:flex-row items-center gap-6 p-6 bg-white rounded-xl shadow-lg">
-                <!-- Contenedor de la foto: 25% del ancho (w-1/4) -->
-                <div class="w-full md:w-1/4">
-                    <div class="aspect-square  max-w-48 mx-auto">
-                        <img src="lara.jpg" alt="Perfil" class="w-full h-full rounded-full object-cover shadow-md">
-                    </div>
-                </div>
-
-                <!-- Contenedor del texto: 75% del ancho (w-3/4) -->
-                <div class="w-full md:w-2/4">
-                    <p> 👋 Hello There! </p>
-                    <h2 class="text-2xl font-bold text-gray-800">I'm Lara Ortiz-Martin</h2>
-                    <!-- <h3>Frontend Architect | Researcher</h3> -->
-                    <p class="mt-2 text-gray-600 leading-relaxed">
-                        I am a PhD graduate in Computer Science specializing in system security. And a Front-end Lead
-                        Architect with 14+ years of experience building and
-                        maintaining complex web apps in the learning and insurance industry.
-                        <br>
-                        <br>
-                        My research background was focus on the analysis and exploitation of biosignals, particularly
-                        electrocardiogram (ECG), and explored the potential of using this kind of signals as a source of
-                        randomness for security applications.
-                        <br>
-                        <br>
-                        As a Frontend Architect I was responsible for designing a high-level architecture, establishing
-                        technical guidelines, and ensuring that the system is scalable, accessible, maintainable, and
-                        secure.
-                        <br>
-                        <br>
-                        At the same time I was working in the industry, I have continued my research on topics such as
-                        security in browser extensions and the application of large language models in research.
-                    </p>
-                </div>
-                <div class="w-full md:w-1/4">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Interests</h3>
-                    <ul class="list-disc list-inside text-gray-600 space-y-1">
-                        <li>Web Technologies</li>
-                        <li>System Security</li>
-                        <li>Browser Extensions</li>
-                        <li>Natural Language Processing</li>
-                        <li>Artificial Intelligence</li>
-                        <li>Quantum Computing</li>
-                    </ul>
-                </div>
-            </div>
-
-        </section>
-        <!-- Education Section -->
-        <section id="education" class="py-20 md:py-32 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Education</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-center "><img src="uc3m.png"
-                                alt="Universidad Carlos III de Madrid" /></div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">PhD in Computer Science (2019)</h3>
-                        <p class="text-gray-600">Title thesis: "Security and privacy based on biosignal for implantable
-                            and wearable devices"</p>
-                        <a class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition"
-                            href="https://e-archivo.uc3m.es/entities/publication/10850d95-b2f5-4e3a-91fc-3341dd25c063"
-                            target="_blank"="text-blue-500 hover:underline">View Thesis</a>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-center "><img src="uc3m.png"
-                                alt="Universiad Carlos III de Madrid" /></div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">MSc in Computer Science and distributed,
-                            multimedia and secure systems (2011)</h3>
-                        <p class="text-gray-600">
-                            Title master thesis: "Use of mobile agents in vehicular networks. State of the question and
-                            application for the generation of pseudonyms in a distributed way"
-                        </p>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-center "><img src="upm.png"
-                                alt="Universidad Politécnica de Madrid" /></div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">BSc in Computer Science (2010)</h3>
-                        <p class="text-gray-600">
-                            Title final project: "Web app for control of working time in a research projects"
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Experience Section -->
-        <section id="experience" class="py-20 md:py-32 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Experience</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Card 0 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-center "><img src="idependat_research.jpeg" alt="Independent Researcher" /></div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Independent Researcher | System Security & AI  (2020 - Present)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Freelance</strong> </p>
-                        <p class="text-gray-600">
-                            Research focused on the security of browser extensions and the impact of Large Language Models (LLMs).
-                        </p>
-                    </div>
-                    <!-- Card 1 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-center "><img src="sisnet.png" alt="SISnet 360" /></div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Front-End Architect (2013 - Present)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>SISnet 360 - Netijam - AVOS Tech</strong> </p>
-                        <p class="text-gray-600">
-                            Highly experienced Front-End Lead Architect specializing in the software insurance industry.
-                        </p>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-center "><img src="chalmers.png" alt="Chalmers" /></div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Researcher Visitor (2017)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Chalmers tekniska högskola</strong> </p>
-                        <p class="text-gray-600"> Research on the feasibility of generating cryptographic tokens from
-                            ECG signals, utilizing a formal model and run-time monitor with a fuzzy extractor.
-                        </p>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-center "><img src="uc3m.png"
-                                alt="Universidad Carlos III de Madrid" /></div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Researcher (2013-2019)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Universidad Carlos III de Madrid</strong> </p>
-                        <p class="text-gray-600">Research on the potential of electrocardiogram (ECG) signals as a
-                            source of random bits for cryptographic applications</p>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-left">
-                            <img src="uned.jpg" alt="Fundación UNED" />
-                        </div>
-                        <div class="text-4xl mb-4 flex justify-center ">
-                            <img src="guapu.jpg" alt="Guapu Technologies" />
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Researcher and web developer (2012-2013)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Fundación UNED and Guapu Technologies</strong></p>
-                        <p class="text-gray-600">Research and web develop in a online teaching platform called
-                            Mission:Learn oriented to video courses.</p>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-center ">
-                            <img src="uc3m.png" alt="Universidad Carlos III de Madrid" />
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Researcher (2010-2011)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Universidad Carlos III de Madrid</strong> </p>
-                        <p class="text-gray-600">Research in security and privacy system focus on searching
-                            vulnerabilities in Radio Frequency Identification (RFID) mutual authentication protocols and
-                            also how to use Mobile Agents in VANET (Vehicular Ad-Hoc Networks).</p>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-center ">
-                            <img src="upm.png" alt="Universidad Politécnica de Madrid" />
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Researcher and web developer (2009-2010)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Universidad Politécnica de Madrid</strong> </p>
-                        <p class="text-gray-600">Research and develop e-learning and e-competencies tools.</p>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-                        <div class="text-4xl mb-4 flex justify-center ">
-                            <img src="upm.png" alt="Universidad Politécnica de Madrid" />
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Web developer (2008-2009)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Universidad Politécnica de Madrid</strong> </p>
-                        <p class="text-gray-600">Analysis and development of corporate web applications of the research
-                            area of the Technical University of Madrid (UPM).</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Publications Section -->
-        <section id="publications" class="py-20 md:py-32 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Publications</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Publication 0 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Evaluating the Integrity of LLM-Generated Citations: Prevalence and Risks of Fabricated References in Scientific Literature
-                            (2026)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
-                            Ortiz-Martin</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Data.</p>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-700">
-                                <span id="abstract0-short"><strong>Abstract:</strong> Large Language Models have become important in our lives, and academia is not agnostic to this trend, offering tools like text rephrasing and summarisation. However, this integration raises significant concerns regarding the integrity of science. In this paper, we investigate hallucinations of LLMs when generating scientific references ...</span>
-                                <span id="abstract0-full" class="hidden"><strong>Abstract:</strong>Large Language Models have become important in our lives, and academia is not agnostic to this trend, offering tools like text rephrasing and summarisation. However, this integration raises significant concerns regarding the integrity of science. In this paper, we investigate hallucinations of LLMs when generating scientific references. Using nine LLMs, we generated a dataset of 74,196 BIBTEX
- references to quantify and analyse fabricated references, focusing on distinguishing between intrinsic and extrinsic hallucinations. Also, we extracted and analysed 127,063 references from 3541 published papers in 2023 to assess the prevalence of fake bibliographic data. Our manual verification process identified eight instances of fabricated references. While the overall rate is statistically low, the mere existence of fabricated content in the peer-reviewed literature is a critical integrity issue, demonstrating a vulnerability in current academic validation systems. The significance of our finding is not the statistical prevalence but rather the necessity for rigorous, human-validated processes to prevent the injection of spurious citations regardless of their source.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract0')"
-                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract0-btn">Show more</span>
-                            </button>
-                        </div>
-                        <a href="https://www.mdpi.com/2306-5729/11/5/122" target="_blank"
-                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a>
-                    </div>
-                    <!-- Publication 1 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Analysing the Impact of ChatGPT in Research
-                            (2024)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
-                            Ortiz-Martin</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Applied Intelligence.</p>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-700">
-                                <span id="abstract1-short"><strong>Abstract:</strong> Large Language Models (LLMs) are a
-                                    type of machine learning that handles a wide range of Natural Language Processing
-                                    (NLP) scenarios. Recently, in December 2022, a company called OpenAI ...</span>
-                                <span id="abstract1-full" class="hidden"><strong>Abstract:</strong> Large Language
-                                    Models (LLMs) are a type of machine learning that handles a wide range of Natural
-                                    Language Processing (NLP) scenarios. Recently, in December 2022, a company called
-                                    OpenAI released ChatGPT, a tool that, within a few months, became the most
-                                    representative example of LLMs, automatically generating unique and coherent text on
-                                    many topics, summarising and rewriting it, or even translating it to other
-                                    languages. ChatGPT originated some controversy in academia since students can
-                                    generate unique text for writing assessments being sometimes extremely difficult to
-                                    distinguish whether it comes from ChatGPT or a person. In research, some journals
-                                    specifically banned ChatGPT in scientific papers. However, when used correctly, it
-                                    becomes a powerful tool to rewrite, for instance, scientific papers and, thus,
-                                    deliver researchers’ messages in a better way. In this paper, we conduct an
-                                    empirical study of the impact of ChatGPT in research. We downloaded the abstract of
-                                    over 45,000 papers from over 300 journals from Dec 2022 and Feb 2023 belonging to
-                                    different research editorials. We use four of the most known ChatGPT detection tools
-                                    and conclude that ChatGPT played a role in around 10% of the papers published in
-                                    every editorial, showing that authors from different fields have rapidly adopted
-                                    such a tool in their research.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract1')"
-                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract1-btn">Show more</span>
-                            </button>
-                        </div>
-                        <a href="https://link.springer.com/content/pdf/10.1007/s10489-024-05298-0.pdf" target="_blank"
-                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a>
-                    </div>
-                    <!-- Publication 2 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Are Chrome Extensions Compliant with the Spirit
-                            of Least Privilege? (2022)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
-                            Ortiz-Martin, Gerardo Schneider and Andrei Sabelfeld</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> International Journal of
-                            Information Security</p>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-700">
-                                <span id="abstract2-short"><strong>Abstract:</strong> Extensions are small applications
-                                    installed by users and enrich the user experience of browsing the Internet. Browsers
-                                    expose a set of restricted APIs to extensions. To be used, extensions need to list
-                                    the permissions associated with these APIs ...</span>
-                                <span id="abstract2-full" class="hidden"><strong>Abstract:</strong> Extensions are small
-                                    applications installed by users and enrich the user experience of browsing the
-                                    Internet. Browsers expose a set of restricted APIs to extensions. To be used,
-                                    extensions need to list the permissions associated with these APIs in a mandatory
-                                    extension file named manifest. In particular, Chrome’s permission ecosystem was
-                                    designed in the spirit of the least privilege. Yet, this paper demonstrates that
-                                    39.8% of the analyzed extensions provided by the official Web Store are compliant
-                                    with the spirit of least privilege. Also, we develop: (1) a browser extension to
-                                    make aware regular users of the permissions the extensions they install; (2) a web
-                                    app where extensions developers can check whether their extensions are compliant
-                                    with the spirit of the least privileged; and (3) a set of scripts that can be part
-                                    of the vendors’ acceptance criteria such that when developers upload their
-                                    extensions to the official repositories, the scripts automatically analyze the
-                                    extensions and generate a report about the permissions and the usage.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract2')"
-                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract2-btn">Show more</span>
-                            </button>
-                        </div>
-                        <a href="https://link.springer.com/content/pdf/10.1007/s10207-022-00610-w.pdf" target="_blank"
-                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a>
-                    </div>
-                    <!-- Publication 3 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Heart-Based Biometric Protocols: A look back
-                            over almost two decades (2022)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo
-                            Picazo-Sanchez</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Arxiv</p>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-700">
-                                <span id="abstract3-short"><strong>Abstract:</strong> This article surveys the
-                                    literature over the period 2003-2021 on heart-based biometric protocols. In
-                                    particular, we focus on how the heart signal is transformed from a continuous wave
-                                    to discrete values to be used afterwards in authentication ...</span>
-                                <span id="abstract3-full" class="hidden"><strong>Abstract:</strong> This article surveys
-                                    the literature over the period 2003-2021 on heart-based biometric protocols. In
-                                    particular, we focus on how the heart signal is transformed from a continuous wave
-                                    to discrete values to be used afterwards in authentication protocols. We explain and
-                                    classify the surveyed proposals according to three main parameters: i) the dataset
-                                    they use for testing their results; ii) the delineation algorithms they use to
-                                    extract the fiducial points, and; iii) the cryptographic tests they run (if any) to
-                                    validate how random the extracted token is.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract3')"
-                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract3-btn">Show more</span>
-                            </button>
-                        </div>
-                        <a href="https://arxiv.org/pdf/2202.02807" target="_blank"
-                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a>
-                    </div>
-                    <!-- Publication 4 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Are the Interpulse Intervals of an ECG Signal a
-                            Good Source of Entropy? An In-depth Entropy Analysis Based on NIST 800-90B Recommendation
-                            (2020)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo
-                            Picazo-Sanchez, Pedro Peris-Lopez</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Journal of Future Generation
-                            Computer Systems</p>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-700">
-                                <span id="abstract4-short"><strong>Abstract:</strong> In recent years many authors have
-                                    explored the use of biological signals for security issues. In the context of
-                                    cardiac signals, the use of Inter-Pulse Interval (IPI) values as a source of entropy
-                                    is one of the most widely used solutions ...</span>
-                                <span id="abstract4-full" class="hidden"><strong>Abstract:</strong> In recent years many
-                                    authors have explored the use of biological signals for security issues. In the
-                                    context of cardiac signals, the use of Inter-Pulse Interval (IPI) values as a source
-                                    of entropy is one of the most widely used solutions in the literature. To date,
-                                    there is a broad consensus that the four least significant bits of each IPI are
-                                    highly entropic and can be used, for instance, in the generation of a cryptographic
-                                    key. In this article, we demonstrate that the choice of the IPI bits used to date
-                                    may not be the most correct (e.g., the combination of bits 2638 are much better that
-                                    the common assumed 5678). To come to our conclusions, we have done a rigorous and
-                                    in-depth study, analyzing cardiac signals from more than 160,000 files from 19
-                                    databases of the Physionet public repository and basing our analysis on the NIST
-                                    800-90B recommendation.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract4')"
-                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract4-btn">Show more</span>
-                            </button>
-                        </div>
-                        <!-- <a href="https://arxiv.org/pdf/2202.02807" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a> -->
-                    </div>
-                    <!-- Publication 5 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Feasibility Analysis of Inter-Pulse Intervals
-                            Based Solutions for Cryptographic Token Generation by Two Electrocardiogram Sensors (2019)
-                        </h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo
-                            Picazo-Sanchez, Pedro Peris-Lopez, Juan Tapiador, Gerardo Schneider.</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Journal of Future Generation
-                            Computer Systems</p>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-700">
-                                <span id="abstract5-short"><strong>Abstract:</strong> In this paper we address the
-                                    problem of how two devices that are sensing the same heart signal can generate the
-                                    same cryptographic token by extracting them from the Inter-Pulse Intervals (IPIs) of
-                                    each cardiac signal. Our analysis is based on ...</span>
-                                <span id="abstract5-full" class="hidden"><strong>Abstract:</strong> In this paper we
-                                    address the problem of how two devices that are sensing the same heart signal can
-                                    generate the same cryptographic token by extracting them from the Inter-Pulse
-                                    Intervals (IPIs) of each cardiac signal. Our analysis is based on the use of a
-                                    run-time monitor, which is extracted from a formal model and verified against
-                                    predefined properties, combined with a fuzzy extractor to improve the final result.
-                                    We first show that it is impossible, in general, to correct the differences between
-                                    the IPIs derived from two captured electrocardiogram (ECG) signals when using only
-                                    error correction techniques, thus being impossible to corroborate previous claims on
-                                    the feasibility of this approach. Then, we provide a large-scale evaluation of the
-                                    proposed method (run-time monitor and fuzzy extractor) over 19 public databases from
-                                    the Physionet repository containing heart signals. The results clearly show the
-                                    practicality of our proposal achieving a 91% of synchronization probability for
-                                    healthy individuals. Additionally, we also conduct an experiment to check how long
-                                    the sensors should record the heart signal in order to generate tokens of 32, 64 and
-                                    128 bits. Contrarily to what it is usually assumed (6, 12, and 24 s for individuals
-                                    with a heart rate of 80 beats-per-minute), the sensors have to wait 13, 28 and 56.5
-                                    s on median, respectively, to derive the same token from both sensors.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract5')"
-                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract5-btn">Show more</span>
-                            </button>
-                        </div>
-                        <!-- <a href="https://arxiv.org/pdf/2202.02807" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a> -->
-                    </div>
-                    <!-- Publication 7 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Heartbeats Do Not Make Good Pseudo-Random
-                            Number Generators: An Analysis of the Randomness of Inter-Pulse Intervals (2018)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo
-                            Picazo-Sanchez, Pedro Peris-Lopez, Juan Tapiador</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Entropy </p>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-700">
-                                <span id="abstract7-short"><strong>Abstract:</strong> The proliferation of wearable and
-                                    implantable medical devices has given rise to an interest in developing security
-                                    schemes suitable for these systems and the environment in which they operate. One
-                                    area that has received much attention lately is the use of (human) biological
-                                    ...</span>
-                                <span id="abstract7-full" class="hidden"><strong>Abstract:</strong> The proliferation of
-                                    wearable and implantable medical devices has given rise to an interest in developing
-                                    security schemes suitable for these systems and the environment in which they
-                                    operate. One area that has received much attention lately is the use of (human)
-                                    biological signals as the basis for biometric authentication, identification and the
-                                    generation of cryptographic keys. The heart signal (e.g., as recorded in an
-                                    electrocardiogram) has been used by several researchers in the last few years.
-                                    Specifically, the so-called Inter-Pulse Intervals (IPIs), which is the time between
-                                    two consecutive heartbeats, have been repeatedly pointed out as a potentially good
-                                    source of entropy and are at the core of various recent authentication protocols. In
-                                    this work, we report the results of a large-scale statistical study to determine
-                                    whether such an assumption is (or not) upheld. For this, we have analyzed 19 public
-                                    datasets of heart signals from the Physionet repository, spanning electrocardiograms
-                                    from 1353 subjects sampled at different frequencies and with lengths that vary
-                                    between a few minutes and several hours. We believe this is the largest dataset on
-                                    this topic analyzed in the literature. We have then applied a standard battery of
-                                    randomness tests to the extracted IPIs. Under the algorithms described in this paper
-                                    and after analyzing these 19 public ECG datasets, our results raise doubts about the
-                                    use of IPI values as a good source of randomness for cryptographic purposes. This
-                                    has repercussions both in the security of some of the protocols proposed up to now
-                                    and also in the design of future IPI-based schemes.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract7')"
-                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract7-btn">Show more</span>
-                            </button>
-                        </div>
-                        <a href="https://www.mdpi.com/1099-4300/20/2/94/pdf?version=1517300225" target="_blank"
-                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a>
-                    </div>
-                    <!-- Publication 8 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Weaknesses of Fingerprint-based Mutual
-                            Authentication Protocol (2014)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
-                            Ortiz-Martin, Pedro Peris-Lopez, Nasour Bagheri</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> Security and Communication
-                            Networks</p>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-700">
-                                <span id="abstract8-short"><strong>Abstract:</strong> The Internet of Things is an
-                                    emerging paradigm, which is used to link physical objects with Internet. One of the
-                                    most common ways of communicating and identifying objects on Internet of Things is
-                                    using Radio Frequency IDentification (RFID) systems between different objects
-                                    ...</span>
-                                <span id="abstract8-full" class="hidden"><strong>Abstract:</strong> The Internet of
-                                    Things is an emerging paradigm, which is used to link physical objects with
-                                    Internet. One of the most common ways of communicating and identifying objects on
-                                    Internet of Things is using Radio Frequency IDentification (RFID) systems between
-                                    different objects. Researchers have focused on developing improvements of RFID
-                                    authentication protocols that stave off privacy threats and well-known security
-                                    problems. Recently, Khor et al. have proposed a new authentication protocol that
-                                    conforms to the Electronic Product Code Class-1 Generation-2 standard (ISO/IEC
-                                    18000-6C for RFID systems). In this paper, we show the vulnerabilities of this
-                                    authentication protocol concerning to full disclosure, impersonation, traceability,
-                                    de-synchronization, and Denial-of-Service attacks. These attacks make the protocol
-                                    unfeasible to introduce it with an adequate security and sufficient privacy
-                                    protection level. Finally, we present a new protocol, called Fingerprint+ protocol,
-                                    which is based on ISO/IEC 9798-2 and ISO/IEC 18000-6C and whose security is formally
-                                    verified using BAN logic. Copyright © 2014 John Wiley & Sons, Ltd.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract8')"
-                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract8-btn">Show more</span>
-                            </button>
-                        </div>
-                        <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/sec.1161" target="_blank"
-                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a>
-                    </div>
-                    <!-- Publication 9 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">Cryptanalysis of the RNTS system (2013)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
-                            Ortiz-Martin, Pedro Peris-Lopez, Julio C. Hernandez-Castro.</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Journal</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> The Journal of
-                            Supercomputing </p>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-700">
-                                <span id="abstract9-short"><strong>Abstract:</strong> Internet of Things is a paradigm
-                                    that enables communication between different devices connected to a local network or
-                                    to Internet. Identification and communication between sensors used in Internet of
-                                    Things and devices like smart-phones or tablets are established using radio
-                                    frequency ...</span>
-                                <span id="abstract9-full" class="hidden"><strong>Abstract:</strong> Internet of Things
-                                    is a paradigm that enables communication between different devices connected to a
-                                    local network or to Internet. Identification and communication between sensors used
-                                    in Internet of Things and devices like smart-phones or tablets are established using
-                                    radio frequency identification technology. However, this technology still has
-                                    several security and privacy issues because of its severe computational constraints.
-                                    In 2011, Jeong and Anh proposed the combined use of an authentication radio
-                                    frequency identification protocol together with a ticket issuing system for bank
-                                    services (in J. Supercomput. 55:307, 2011). In this paper we show that their message
-                                    generation is weak, because it abuses the XOR operation and the use of a counter,
-                                    which leaks too much secret protocol information. Our analysis shows important
-                                    security faults that ruin most of the security properties claimed in the original
-                                    paper. More precisely, information privacy (via a disclosure and leakage attack) and
-                                    location privacy (traceability attack) are both compromised. Moreover, an attacker
-                                    can disrupt the proper working of the system by exploiting the fact that message
-                                    integrity is not properly checked.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract9')"
-                                class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract9-btn">Show more</span>
-                            </button>
-                        </div>
-                        <!-- <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/sec.1161" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a> -->
-                    </div>
-                    <!-- Publication 10 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">"Security of EPC Class-1." Security and Trends
-                            in Wireless Identification and Sensing Platform Tags: Advancements in RFID. (2013)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara
-                            Ortiz-Martin, Pedro Peris-Lopez, Julio C. Hernandez-Castro.</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Book Chapters</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> IGI Global</p>
-                        <div class="mb-4">
-                            <!-- <p class="text-sm text-gray-700">
-                                <span id="abstract10-short"><strong>Abstract:</strong> Internet of Things is a paradigm that enables communication between different devices connected to a local network or to Internet. Identification and communication between sensors used in Internet of Things and devices like smart-phones or tablets are established using radio frequency ...</span>
-                                <span id="abstract10-full" class="hidden"><strong>Abstract:</strong> Internet of Things is a paradigm that enables communication between different devices connected to a local network or to Internet. Identification and communication between sensors used in Internet of Things and devices like smart-phones or tablets are established using radio frequency identification technology. However, this technology still has several security and privacy issues because of its severe computational constraints. In 2011, Jeong and Anh proposed the combined use of an authentication radio frequency identification protocol together with a ticket issuing system for bank services (in J. Supercomput. 55:307, 2011). In this paper we show that their message generation is weak, because it abuses the XOR operation and the use of a counter, which leaks too much secret protocol information. Our analysis shows important security faults that ruin most of the security properties claimed in the original paper. More precisely, information privacy (via a disclosure and leakage attack) and location privacy (traceability attack) are both compromised. Moreover, an attacker can disrupt the proper working of the system by exploiting the fact that message integrity is not properly checked.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract10')" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract10-btn">Show more</span>
-                            </button> -->
-                        </div>
-                        <!-- <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/sec.1161" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a> -->
-                    </div>
-                    <!-- Publication 11 -->
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold text-gray-900 mb-3">ECG Dj: Heart Beat Synchronization (2017)</h3>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Authors:</strong> Lara Ortiz-Martin, Pedro
-                            Peris-Lopez, Pablo Picazo-Sanchez, Gerardo Schneider, Juan Tapiador</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Poster</p>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Publication:</strong> USENIX </p>
-                        <div class="mb-4">
-                            <!-- <p class="text-sm text-gray-700">
-                                <span id="abstract10-short"><strong>Abstract:</strong> Internet of Things is a paradigm that enables communication between different devices connected to a local network or to Internet. Identification and communication between sensors used in Internet of Things and devices like smart-phones or tablets are established using radio frequency ...</span>
-                                <span id="abstract10-full" class="hidden"><strong>Abstract:</strong> Internet of Things is a paradigm that enables communication between different devices connected to a local network or to Internet. Identification and communication between sensors used in Internet of Things and devices like smart-phones or tablets are established using radio frequency identification technology. However, this technology still has several security and privacy issues because of its severe computational constraints. In 2011, Jeong and Anh proposed the combined use of an authentication radio frequency identification protocol together with a ticket issuing system for bank services (in J. Supercomput. 55:307, 2011). In this paper we show that their message generation is weak, because it abuses the XOR operation and the use of a counter, which leaks too much secret protocol information. Our analysis shows important security faults that ruin most of the security properties claimed in the original paper. More precisely, information privacy (via a disclosure and leakage attack) and location privacy (traceability attack) are both compromised. Moreover, an attacker can disrupt the proper working of the system by exploiting the fact that message integrity is not properly checked.</span>
-                            </p>
-                            <button onclick="toggleAbstract('abstract10')" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                                <span id="abstract10-btn">Show more</span>
-                            </button> -->
-                        </div>
-                        <a href="https://lightweightcryptography.com/wp-content/papercite-data/pdf/c42martinperis2017.pdf"
-                            target="_blank"
-                            class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                            View PDF
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 md:py-32 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Contact</h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Email Card -->
-                    <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition">
-                        <div class="flex justify-center mb-4">
-                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center">
-                                <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Email</h3>
-                        <p class="text-gray-600 mb-4">Get in touch via email</p>
-                        <a href="mailto:aylara551.js@gmail.com"
-                            class="inline-block bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
-                            Send Email
-                        </a>
-                    </div>
-
-                    <!-- LinkedIn Card -->
-                    <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition">
-                        <div class="flex justify-center mb-4">
-                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="linkfull.png" alt="LinkedIn" class="w-8 h-8 rounded">
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">LinkedIn</h3>
-                        <p class="text-gray-600 mb-4">Connect professionally</p>
-                        <a href="https://www.linkedin.com/in/lara-ortiz-martín-26393940" target="_blank"
-                            class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
-                            Connect
-                        </a>
-                    </div>
-
-                    <!-- GitHub Card -->
-                    <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition">
-                        <div class="flex justify-center mb-4">
-                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="github.png" alt="GitHub" class="w-8 h-8">
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">GitHub</h3>
-                        <p class="text-gray-600 mb-4">Check out my code</p>
-                        <a href="https://github.com/aylara551js" target="_blank"
-                            class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-900 transition">
-                            Follow
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Additional Contact Info -->
-                <div class="mt-12 text-center">
-                    <p class="text-gray-600">
-                        Feel free to reach out for collaboration opportunities, research discussions, or just to say
-                        hello!
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="border-t border-gray-800 pt-8 text-center">
-                <p>&copy; 2025 Lara Ortiz-Martín. All rights reserved.</p>
-            </div>
+        <div class="portrait-wrap">
+          <div class="portrait-frame">
+            <img src="lara.webp" alt="Lara Ortiz-Martín" fetchpriority="high">
+          </div>
+          <div class="experience-tag" aria-label="More than 14 years of experience">
+            <strong>14+</strong>
+            <span>years of<br>experience</span>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
+    <section class="credentials" aria-label="Resumen profesional">
+      <div class="wrap credentials-inner">
+        <p class="credentials-label">Research, system security and front-end architecture.</p>
+        <div class="credential"><strong>14+</strong><span>years building web applications</span></div>
+        <div class="credential"><strong>PhD</strong><span>in Computer Science</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="aboutme" aria-labelledby="focus-title">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-kicker">About · Hello There!</p>
+            <h2 id="focus-title">I'm Lara Ortiz-Martin</h2>
+          </div>
+          <div class="about-description">
+            <p class="about-lead">I am a PhD graduate in Computer Science specializing in system security. And a Front-end Lead Architect with 14+ years of experience building and maintaining complex web apps in the learning and insurance industry.</p>
+            <p>My research background was focus on the analysis and exploitation of biosignals, particularly electrocardiogram (ECG), and explored the potential of using this kind of signals as a source of randomness for security applications.</p>
+            <p>As a Frontend Architect I was responsible for designing a high-level architecture, establishing technical guidelines, and ensuring that the system is scalable, accessible, maintainable, and secure.</p>
+            <p>At the same time I was working in the industry, I have continued my research on topics such as security in browser extensions and the application of large language models in research.</p>
+          </div>
+        </div>
+        <div class="interest-block reveal">
+          <h3>Interests</h3>
+          <ul class="interest-list">
+            <li>Web Technologies</li>
+            <li>System Security</li>
+            <li>Browser Extensions</li>
+            <li>Natural Language Processing</li>
+            <li>Artificial Intelligence</li>
+            <li>Quantum Computing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section profile" id="education" aria-labelledby="profile-title">
+      <div class="wrap profile-grid">
+        <div class="profile-aside reveal">
+          <p class="section-kicker">Academic background</p>
+          <h2 id="profile-title">Education</h2>
+          <p class="section-intro">Computer science, distributed systems and security.</p>
+        </div>
+        <div class="education-grid reveal">
+          <article class="education-item">
+            <img src="uc3m.webp" alt="Universidad Carlos III de Madrid">
+            <h3>PhD in Computer Science (2019)</h3>
+            <p>Title thesis: “Security and privacy based on biosignal for implantable and wearable devices”</p>
+            <a href="https://e-archivo.uc3m.es/entities/publication/10850d95-b2f5-4e3a-91fc-3341dd25c063" target="_blank" rel="noreferrer">View Thesis ↗</a>
+          </article>
+          <article class="education-item">
+            <img src="uc3m.webp" alt="Universidad Carlos III de Madrid">
+            <h3>MSc in Computer Science and distributed, multimedia and secure systems (2011)</h3>
+            <p>Title master thesis: “Use of mobile agents in vehicular networks. State of the question and application for the generation of pseudonyms in a distributed way”</p>
+          </article>
+          <article class="education-item">
+            <img src="upm.webp" alt="Universidad Politécnica de Madrid">
+            <h3>BSc in Computer Science (2010)</h3>
+            <p>Title final project: “Web app for control of working time in a research projects”</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div><p class="section-kicker">Career timeline</p><h2 id="experience-title">Experience</h2></div>
+          <p class="section-intro">Front-end architecture, system security research and web development across industry and academia.</p>
+        </div>
+        <div class="experience-list reveal">
+          <article class="experience-item"><div class="experience-logos"><img src="independant_researcher.webp" alt="Independent Researcher" loading="lazy"></div><span class="experience-year">2020 — Present</span><h3>Independent Researcher | System Security &amp; AI</h3><p><strong class="experience-org">Freelance</strong>Research focused on the security of browser extensions and the impact of Large Language Models (LLMs).</p></article>
+          <article class="experience-item"><div class="experience-logos"><img src="sisnet.webp" alt="SISnet 360" loading="lazy"></div><span class="experience-year">2013 — Present</span><h3>Front-End Architect</h3><p><strong class="experience-org">SISnet 360 - Netijam - AVOS Tech</strong>Highly experienced Front-End Lead Architect specializing in the software insurance industry.</p></article>
+          <article class="experience-item"><div class="experience-logos"><img src="chalmers.webp" alt="Chalmers tekniska högskola" loading="lazy"></div><span class="experience-year">2017</span><h3>Researcher Visitor</h3><p><strong class="experience-org">Chalmers tekniska högskola</strong>Research on the feasibility of generating cryptographic tokens from ECG signals, utilizing a formal model and run-time monitor with a fuzzy extractor.</p></article>
+          <article class="experience-item"><div class="experience-logos"><img src="uc3m.webp" alt="Universidad Carlos III de Madrid" loading="lazy"></div><span class="experience-year">2013 — 2019</span><h3>Researcher</h3><p><strong class="experience-org">Universidad Carlos III de Madrid</strong>Research on the potential of electrocardiogram (ECG) signals as a source of random bits for cryptographic applications.</p></article>
+          <article class="experience-item"><div class="experience-logos dual"><img src="uned.webp" alt="Fundación UNED" loading="lazy"><img src="guapu.webp" alt="Guapu Technologies" loading="lazy"></div><span class="experience-year">2012 — 2013</span><h3>Researcher and web developer</h3><p><strong class="experience-org">Fundación UNED and Guapu Technologies</strong>Research and web develop in a online teaching platform called Mission:Learn oriented to video courses.</p></article>
+          <article class="experience-item"><div class="experience-logos"><img src="uc3m.webp" alt="Universidad Carlos III de Madrid" loading="lazy"></div><span class="experience-year">2010 — 2011</span><h3>Researcher</h3><p><strong class="experience-org">Universidad Carlos III de Madrid</strong>Research in security and privacy system focus on searching vulnerabilities in Radio Frequency Identification (RFID) mutual authentication protocols and also how to use Mobile Agents in VANET (Vehicular Ad-Hoc Networks).</p></article>
+          <article class="experience-item"><div class="experience-logos"><img src="upm.webp" alt="Universidad Politécnica de Madrid" loading="lazy"></div><span class="experience-year">2009 — 2010</span><h3>Researcher and web developer</h3><p><strong class="experience-org">Universidad Politécnica de Madrid</strong>Research and develop e-learning and e-competencies tools.</p></article>
+          <article class="experience-item"><div class="experience-logos"><img src="upm.webp" alt="Universidad Politécnica de Madrid" loading="lazy"></div><span class="experience-year">2008 — 2009</span><h3>Web developer</h3><p><strong class="experience-org">Universidad Politécnica de Madrid</strong>Analysis and development of corporate web applications of the research area of the Technical University of Madrid (UPM).</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section profile" id="publications" aria-labelledby="publications-title">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div><p class="section-kicker">Selected work</p><h2 id="publications-title">Publications</h2></div>
+          <p class="section-intro">Research on system security, biosignals, browser extensions and the impact of language models.</p>
+        </div>
+        <div class="publication-list reveal">
+          <article class="publication-item"><div><h3>Evaluating the Integrity of LLM-Generated Citations: Prevalence and Risks of Fabricated References in Scientific Literature (2026)</h3><p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin · <strong>Type:</strong> Journal · <strong>Publication:</strong> Data.</p><p class="abstract" data-abstract></p></div><a class="publication-link" href="https://www.mdpi.com/2306-5729/11/5/122" target="_blank" rel="noreferrer">View PDF ↗</a></article>
+          <article class="publication-item"><div><h3>Analysing the Impact of ChatGPT in Research (2024)</h3><p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin · <strong>Type:</strong> Journal · <strong>Publication:</strong> Applied Intelligence.</p><p class="abstract" data-abstract></p></div><a class="publication-link" href="https://link.springer.com/content/pdf/10.1007/s10489-024-05298-0.pdf" target="_blank" rel="noreferrer">View PDF ↗</a></article>
+          <article class="publication-item"><div><h3>Are Chrome Extensions Compliant with the Spirit of Least Privilege? (2022)</h3><p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin, Gerardo Schneider and Andrei Sabelfeld · <strong>Type:</strong> Journal · <strong>Publication:</strong> International Journal of Information Security.</p><p class="abstract" data-abstract></p></div><a class="publication-link" href="https://link.springer.com/content/pdf/10.1007/s10207-022-00610-w.pdf" target="_blank" rel="noreferrer">View PDF ↗</a></article>
+          <article class="publication-item"><div><h3>Heart-Based Biometric Protocols: A look back over almost two decades (2022)</h3><p class="publication-meta"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo Picazo-Sanchez · <strong>Publication:</strong> Arxiv.</p><p class="abstract" data-abstract></p></div><a class="publication-link" href="https://arxiv.org/pdf/2202.02807" target="_blank" rel="noreferrer">View PDF ↗</a></article>
+          <article class="publication-item"><div><h3>Are the Interpulse Intervals of an ECG Signal a Good Source of Entropy? An In-depth Entropy Analysis Based on NIST 800-90B Recommendation (2020)</h3><p class="publication-meta"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo Picazo-Sanchez, Pedro Peris-Lopez · <strong>Type:</strong> Journal · <strong>Publication:</strong> Journal of Future Generation Computer Systems.</p><p class="abstract" data-abstract></p></div></article>
+          <article class="publication-item"><div><h3>Feasibility Analysis of Inter-Pulse Intervals Based Solutions for Cryptographic Token Generation by Two Electrocardiogram Sensors (2019)</h3><p class="publication-meta"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo Picazo-Sanchez, Pedro Peris-Lopez, Juan Tapiador, Gerardo Schneider · <strong>Type:</strong> Journal · <strong>Publication:</strong> Journal of Future Generation Computer Systems.</p><p class="abstract" data-abstract></p></div></article>
+          <article class="publication-item"><div><h3>Heartbeats Do Not Make Good Pseudo-Random Number Generators: An Analysis of the Randomness of Inter-Pulse Intervals (2018)</h3><p class="publication-meta"><strong>Authors:</strong> Lara Ortiz-Martin, Pablo Picazo-Sanchez, Pedro Peris-Lopez, Juan Tapiador · <strong>Type:</strong> Journal · <strong>Publication:</strong> Entropy.</p><p class="abstract" data-abstract></p></div><a class="publication-link" href="https://www.mdpi.com/1099-4300/20/2/94/pdf?version=1517300225" target="_blank" rel="noreferrer">View PDF ↗</a></article>
+          <article class="publication-item"><div><h3>Weaknesses of Fingerprint-based Mutual Authentication Protocol (2014)</h3><p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin, Pedro Peris-Lopez, Nasour Bagheri · <strong>Type:</strong> Journal · <strong>Publication:</strong> Security and Communication Networks.</p><p class="abstract" data-abstract></p></div><a class="publication-link" href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/sec.1161" target="_blank" rel="noreferrer">View PDF ↗</a></article>
+          <article class="publication-item"><div><h3>Cryptanalysis of the RNTS system (2013)</h3><p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin, Pedro Peris-Lopez, Julio C. Hernandez-Castro · <strong>Type:</strong> Journal · <strong>Publication:</strong> The Journal of Supercomputing.</p><p class="abstract" data-abstract></p></div></article>
+          <article class="publication-item"><div><h3>“Security of EPC Class-1.” Security and Trends in Wireless Identification and Sensing Platform Tags: Advancements in RFID (2013)</h3><p class="publication-meta"><strong>Authors:</strong> Pablo Picazo-Sanchez, Lara Ortiz-Martin, Pedro Peris-Lopez, Julio C. Hernandez-Castro · <strong>Type:</strong> Book Chapters · <strong>Publication:</strong> IGI Global.</p></div></article>
+          <article class="publication-item"><div><h3>ECG Dj: Heart Beat Synchronization (2017)</h3><p class="publication-meta"><strong>Authors:</strong> Lara Ortiz-Martin, Pedro Peris-Lopez, Pablo Picazo-Sanchez, Gerardo Schneider, Juan Tapiador · <strong>Type:</strong> Poster · <strong>Publication:</strong> USENIX.</p></div><a class="publication-link" href="https://lightweightcryptography.com/wp-content/papercite-data/pdf/c42martinperis2017.pdf" target="_blank" rel="noreferrer">View PDF ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div class="wrap reveal">
+        <p class="section-kicker">Contact</p>
+        <h2 id="contact-title">Get in touch</h2>
+        <div class="contact-grid">
+          <article class="contact-item">
+            <span class="contact-icon" aria-hidden="true"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></span>
+            <h3>Email</h3><p>Get in touch via email</p><a href="mailto:aylara551.js@gmail.com">Send Email ↗</a>
+          </article>
+          <article class="contact-item">
+            <span class="contact-icon" aria-hidden="true"><img src="linkfull.webp" alt="" loading="lazy"></span>
+            <h3>LinkedIn</h3><p>Connect professionally</p><a href="https://www.linkedin.com/in/lara-ortiz-mart%C3%ADn-26393940" target="_blank" rel="noreferrer">Connect ↗</a>
+          </article>
+          <article class="contact-item">
+            <span class="contact-icon" aria-hidden="true"><img src="github.webp" alt="" loading="lazy"></span>
+            <h3>GitHub</h3><p>Check out my code</p><a href="https://github.com/aylara551js" target="_blank" rel="noreferrer">Follow ↗</a>
+          </article>
+        </div>
+        <p class="contact-note">Feel free to reach out for collaboration opportunities, research discussions, or just to say hello!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="footer-name">Lara Ortiz-Martín</span>
+      <p>© 2026 Lara Ortiz-Martín. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const expandedAbstractTemplate = document.querySelector('#expanded-abstracts');
+    const publicationCards = document.querySelectorAll('#publications .publication-item');
+
+    for (const expandedArticle of expandedAbstractTemplate.content.querySelectorAll('.publication-item')) {
+      const title = expandedArticle.querySelector('h3').textContent.trim();
+      const fullAbstract = expandedArticle.querySelector('details p').textContent;
+      const publication = [...publicationCards].find((card) => card.querySelector('h3').textContent.trim() === title);
+      const abstractEl = publication?.querySelector('[data-abstract]');
+      if (!abstractEl) continue;
+
+      // split on a space so preview + rest reconstruct the original text with no gap or overlap
+      const breakPoint = fullAbstract.lastIndexOf(' ', 250);
+      const previewEnd = breakPoint > 0 ? breakPoint : 250;
+      const previewText = fullAbstract.slice(0, previewEnd);
+      const restText = fullAbstract.slice(previewEnd + 1);
+
+      const label = document.createElement('strong');
+      label.textContent = 'Abstract: ';
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'abstract-toggle';
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '… Read more';
+      const rest = document.createElement('span');
+      rest.className = 'abstract-rest';
+      rest.textContent = restText;
+
+      abstractEl.replaceChildren(label, `${previewText} `, toggle, rest);
+    }
+    expandedAbstractTemplate.remove();
+
+    document.addEventListener('click', (event) => {
+      const toggle = event.target.closest('.abstract-toggle');
+      if (!toggle) return;
+      const abstractEl = toggle.closest('.abstract');
+      const rest = abstractEl.querySelector('.abstract-rest');
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+        // collapse first, then move the control back next to the preview once the text has fully hidden
+        rest.style.maxHeight = '0px';
+        rest.classList.remove('is-open');
+        rest.addEventListener('transitionend', () => rest.before(toggle), { once: true });
+      } else {
+        // move the control to the end first so it follows the text as it expands
+        abstractEl.append(toggle);
+        rest.classList.add('is-open');
+        rest.style.maxHeight = `${rest.scrollHeight}px`;
+      }
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.textContent = isOpen ? '… Read more' : 'Show less';
+    });
+
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('#site-nav');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+      navigation.classList.toggle('is-open', !isOpen);
+    });
+
+    navigation.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open menu');
+        navigation.classList.remove('is-open');
+      }
+    });
+
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            currentObserver.unobserve(entry.target);
+          }
         }
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    } else {
+      document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+    }
+  </script>
 
-        function toggleAbstract(abstractId) {
-            const shortText = document.getElementById(abstractId + '-short');
-            const fullText = document.getElementById(abstractId + '-full');
-            const button = document.getElementById(abstractId + '-btn');
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
 
-            if (fullText.classList.contains('hidden')) {
-                shortText.classList.add('hidden');
-                fullText.classList.remove('hidden');
-                button.textContent = 'Show less';
-            } else {
-                shortText.classList.remove('hidden');
-                fullText.classList.add('hidden');
-                button.textContent = 'Show more';
-            }
-        }
-    </script>
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      if (toggleBtn) {
+        const isDark = theme === 'dark';
+        toggleBtn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        toggleBtn.setAttribute('title', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+      }
+    }
+
+    if (toggleBtn) {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(current);
+
+      toggleBtn.addEventListener('click', () => {
+        const activeTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(activeTheme);
+        localStorage.setItem('theme', activeTheme);
+      });
+    }
+  </script>
 </body>
-
 </html>
