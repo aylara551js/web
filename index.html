@@ -167,7 +167,7 @@
     .nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 42px); }
     .nav a { color: var(--muted); font-size: 13px; font-weight: 600; text-decoration: none; transition: color 180ms ease; }
     .nav a:hover, .nav a:focus-visible { color: var(--ink); }
-    .nav .nav-contact { color: var(--ink); border-bottom: 1px solid var(--ink); padding: 8px 0; }
+    .nav a[aria-current="true"] { color: var(--ink); box-shadow: 0 2px 0 var(--terracotta); }
     .menu-toggle { display: none; }
 
     .hero { min-height: 660px; padding-block: clamp(48px, 7vw, 92px) clamp(64px, 8vw, 110px); }
@@ -276,7 +276,6 @@
       .nav { position: absolute; top: 69px; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; border-bottom: 1px solid var(--line); padding: 7px var(--gutter) 14px; background: var(--paper); }
       .nav.is-open { display: flex; }
       .nav a { padding: 12px 0; }
-      .nav .nav-contact { align-self: flex-start; margin-top: 3px; }
       .hero { min-height: unset; padding-block: 46px 74px; }
       .hero-grid { grid-template-columns: 1fr; gap: 38px; }
       .hero-copy { padding: 0; }
@@ -451,13 +450,10 @@
     [data-theme="dark"] .nav {
       background: var(--paper);
     }
+    [data-theme="dark"] .nav a[aria-current="true"] { color: var(--ink); }
     [data-theme="dark"] .nav a:hover,
     [data-theme="dark"] .nav a:focus-visible {
       color: var(--ink);
-    }
-    [data-theme="dark"] .nav .nav-contact {
-      color: var(--ink);
-      border-bottom-color: var(--ink);
     }
     [data-theme="dark"] .menu-toggle {
       border-color: var(--line);
@@ -657,7 +653,7 @@
           <a href="#education">Education</a>
           <a href="#experience">Experience</a>
           <a href="#publications">Publications</a>
-          <a class="nav-contact" href="#contacto">Contact <span aria-hidden="true">↗</span></a>
+          <a href="#contacto">Contact</a>
         </nav>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
           <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -908,6 +904,28 @@
         navigation.classList.remove('is-open');
       }
     });
+
+    const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
+    const navSections = navLinks.map((link) => document.querySelector(link.getAttribute('href')));
+    let spyQueued = false;
+    function updateActiveNav() {
+      spyQueued = false;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      let active = -1;
+      navSections.forEach((section, index) => {
+        if (section && section.getBoundingClientRect().top <= 120) active = index;
+      });
+      if (atBottom) active = navSections.length - 1;
+      navLinks.forEach((link, index) => {
+        if (index === active) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    }
+    window.addEventListener('scroll', () => {
+      if (!spyQueued) { spyQueued = true; requestAnimationFrame(updateActiveNav); }
+    }, { passive: true });
+    window.addEventListener('resize', updateActiveNav);
+    updateActiveNav();
 
     if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const observer = new IntersectionObserver((entries, currentObserver) => {
